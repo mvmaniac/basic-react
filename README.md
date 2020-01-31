@@ -1,4 +1,4 @@
-# Basic Multi Module
+# Basic React
 
 ### 1. 웹 게임을 만들며 배우는 React 강의의 실습 예제 기반
 
