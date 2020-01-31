@@ -25,7 +25,7 @@
 * eslint & prettier  
     ```npm i -D eslint prettier```
 
-    포맷팅만 사용하는 경우
+    포맷팅만 사용하는 경우  
     config / "extends": ["prettier"]  
     ```npm i -D eslint-config-prettier```
 
