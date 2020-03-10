@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 
 class BallClass extends PureComponent {
-  render () {
+  render() {
     const {number} = this.props;
 
     let background;

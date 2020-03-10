@@ -23,7 +23,7 @@ const getWinNumbers = () => {
 };
 
 class LottoClass extends Component {
-  constructor () {
+  constructor() {
     super();
 
     this.state = {
@@ -38,14 +38,14 @@ class LottoClass extends Component {
 
   // 컴포넌트가 첫 렌더링된 후
   // 비동기 요청을 많이 함
-  componentDidMount () {
+  componentDidMount() {
     console.log('componentDidMount...');
 
     this.runTimeouts();
   }
 
   // 리렌더링 후
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate...');
 
     if (this.timeouts.length === 0) {
@@ -57,7 +57,7 @@ class LottoClass extends Component {
 
   // 컴포넌트가 제거되기 직전
   // 비동기 요청 정리
-  componentWillUnmount () {
+  componentWillUnmount() {
     console.log('componentWillUnmount...');
 
     this.timeouts.forEach(v => {
@@ -100,7 +100,7 @@ class LottoClass extends Component {
     }, 7000);
   };
 
-  render () {
+  render() {
     const {winBalls, bonusBall, redo} = this.state;
 
     return (

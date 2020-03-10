@@ -1,90 +1,93 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>구구단 - class</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>구구단 - class</title>
 </head>
+
 <body>
-    <div id="root"></div>
+  <div id="root"></div>
 
-    <script src="https://unpkg.com/react@16.9.0/umd/react.development.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/react-dom@16.9.0/umd/react-dom.development.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@16.9.0/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@16.9.0/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js" crossorigin="anonymous"></script>
 
-    <script type="text/babel">
-        class GuGuDan extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = {
-                    result: "",
-                    value: "",
-                    first: Math.ceil(Math.random() * 9),
-                    second: Math.ceil(Math.random() * 9)
-                }
-                this.inputRef = null;
-            }
-
-            // 화살표 함수로 할 경우
-            onSubmitForm = (e) => {
-                e.preventDefault();
-
-                if (parseInt(this.state.value) === (this.state.first * this.state.second)) {
-                    // setState 를 함수로 함수로 할 경우 prevState 값을 가지고 올 수 있음
-                    // setState 비동기로 수행되므로, 예전의 값으로 현재 값을 변경을 한다면 setState 변경은 함수를 사용
-                    this.setState((prevState) => {
-                        return {
-                            result: `정답 : ${prevState.value}`,
-                            value: "",
-                            first: Math.ceil(Math.random() * 9),
-                            second: Math.ceil(Math.random() * 9)
-                        }
-                    });
-
-                } else {
-                    this.setState({
-                        result: "땡!",
-                        value: "",
-                    });
-                }
-
-                this.inputRef.focus();
-            };
-
-            // 그냥 함수로 할 경우
-            // render는 계속 실행하기 때문에 onChange 함수는 계속 생성해서 실행 됨
-            onChangeInput(e) {
-                this.setState({ value: e.target.value });
-            }
-
-            // onRefInput(el) {
-            //     console.log("호출됨...");
-            //     this.numberInput = el;
-            // }
-
-            onInputRef = (el) => {
-                console.log("최초 호출됨...");
-                this.inputRef = el;
-            }
-
-            render() {
-                return (
-                    <React.Fragment>
-                        <div>{this.state.first} 곱하기 {this.state.second}는 ?</div>
-                        <form onSubmit={this.onSubmitForm}>
-                            <input type="number" value={this.state.value} onChange={(e) => this.onChangeInput(e)} ref={this.onInputRef} />
-                            &nbsp;<button>입력!</button>
-                        </form>
-                        <div>{this.state.result}</div>
-                    </React.Fragment>
-                );
-            }
+  <script type="text/babel">
+    class GuGuDan extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          result: "",
+          value: "",
+          first: Math.ceil(Math.random() * 9),
+          second: Math.ceil(Math.random() * 9)
         }
-    </script>
+        this.inputRef = null;
+      }
 
-    <script type="text/babel">
-        ReactDOM.render(<GuGuDan />, document.querySelector("#root"));
-    </script>
+      // 화살표 함수로 할 경우
+      onSubmitForm = (e) => {
+        e.preventDefault();
+
+        if (parseInt(this.state.value) === (this.state.first * this.state.second)) {
+          // setState 를 함수로 함수로 할 경우 prevState 값을 가지고 올 수 있음
+          // setState 비동기로 수행되므로, 예전의 값으로 현재 값을 변경을 한다면 setState 변경은 함수를 사용
+          this.setState((prevState) => {
+            return {
+              result: `정답 : ${prevState.value}`,
+              value: "",
+              first: Math.ceil(Math.random() * 9),
+              second: Math.ceil(Math.random() * 9)
+            }
+          });
+
+        } else {
+          this.setState({
+            result: "땡!",
+            value: "",
+          });
+        }
+
+        this.inputRef.focus();
+      };
+
+      // 그냥 함수로 할 경우
+      // render는 계속 실행하기 때문에 onChange 함수는 계속 생성해서 실행 됨
+      onChangeInput(e) {
+        this.setState({ value: e.target.value });
+      }
+
+      // onRefInput(el) {
+      //     console.log("호출됨...");
+      //     this.numberInput = el;
+      // }
+
+      onInputRef = (el) => {
+        console.log("최초 호출됨...");
+        this.inputRef = el;
+      }
+
+      render() {
+        return (
+          <React.Fragment>
+            <div>{this.state.first} 곱하기 {this.state.second}는 ?</div>
+            <form onSubmit={this.onSubmitForm}>
+              <input type="number" value={this.state.value} onChange={(e) => this.onChangeInput(e)} ref={this.onInputRef} />
+              &nbsp;<button>입력!</button>
+            </form>
+            <div>{this.state.result}</div>
+          </React.Fragment>
+        );
+      }
+    }
+  </script>
+
+  <script type="text/babel">
+    ReactDOM.render(<GuGuDan />, document.querySelector("#root"));
+  </script>
 </body>
+
 </html>

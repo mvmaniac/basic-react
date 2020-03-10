@@ -16,4 +16,3 @@ export const FLAG_CELL = 'FLAG_CELL';
 export const QUESTION_CELL = 'QUESTION_CELL';
 export const NORMALIZE_CELL = 'NORMALIZE_CELL';
 export const INCREMENT_TIMER = 'INCREMENT_TIMER';
-

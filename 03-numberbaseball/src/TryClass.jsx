@@ -6,7 +6,7 @@ class TryClass extends PureComponent {
 
   ignore = () => {};
 
-  render () {
+  render() {
     const {tryInfo} = this.props;
 
     return (

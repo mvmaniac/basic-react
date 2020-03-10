@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
+import {render} from 'react-dom';
 
-import { hot } from 'react-hot-loader/root';
+import {hot} from 'react-hot-loader/root';
 
 // import ResponseCheckClass  from './src/ResponseCheckClass';
 import ResponseCheckHooks from './src/ResponseCheckHooks';

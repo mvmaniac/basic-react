@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 class WordRelayClass extends Component {
-  constructor () {
+  constructor() {
     super();
 
     this.state = {
@@ -40,7 +40,7 @@ class WordRelayClass extends Component {
     this.inputRef = el;
   };
 
-  render () {
+  render() {
     const {word, value, result} = this.state;
 
     return (

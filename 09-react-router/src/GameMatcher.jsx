@@ -6,7 +6,7 @@ import LottoClass from '../../06-lotto/src/LottoClass';
 class GameMatcher extends Component {
   ignore = () => {};
 
-  render () {
+  render() {
     const {match, location} = this.props;
     console.log(this.props);
 

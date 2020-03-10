@@ -1,11 +1,14 @@
 {
   "env": {
     "browser": true,
-    "commonjs": true,
-    "es6": true,
-    "node": true
+    "node": true,
+    "es2020": true
   },
-  "extends": ["airbnb", "prettier"],
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -18,18 +21,32 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "react",
+    "react-hooks",
+    "prettier"
+  ],
   "rules": {
-    "space-before-function-paren": [
+    // "space-before-function-paren": [
+    //   "error",
+    //   {
+    //     "anonymous": "always",
+    //     "named": "always",
+    //     "asyncArrow": "always"
+    //   }
+    // ],
+
+    "import/no-extraneous-dependencies": [
       "error",
       {
-        "anonymous": "always",
-        "named": "always",
-        "asyncArrow": "always"
+        "packageDir": "."
       }
     ],
-    "import/no-extraneous-dependencies": ["error", {"packageDir": "."}],
+
     "react/prop-types": ["off"],
+
     "jsx-a11y/click-events-have-key-events": ["off"]
   }
 }

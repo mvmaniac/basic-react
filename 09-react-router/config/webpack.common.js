@@ -51,6 +51,5 @@ module.exports = {
     publicPath: '/dist', // webpack-dev-server 때문에 사용함
     path: path.join(__dirname, '../dist'),
     filename: 'app.js'
-  },
-
+  }
 };

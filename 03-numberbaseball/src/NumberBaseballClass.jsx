@@ -2,7 +2,7 @@ import React, {Component, createRef} from 'react';
 import TryClass from './TryClass';
 
 // 숫자 4개를 겹치지 않고 랜덤하게 뽑는 함수
-function getNumbers () {
+function getNumbers() {
   const candidate = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const array = [];
 
@@ -15,7 +15,7 @@ function getNumbers () {
 }
 
 class NumberBaseballClass extends Component {
-  constructor () {
+  constructor() {
     super();
 
     this.state = {
@@ -92,7 +92,7 @@ class NumberBaseballClass extends Component {
     });
   };
 
-  render () {
+  render() {
     const {result, value, tries} = this.state;
 
     return (

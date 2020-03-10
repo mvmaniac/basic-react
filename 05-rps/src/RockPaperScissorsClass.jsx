@@ -24,7 +24,7 @@ const computerChoice = imgCoord => {
 };
 
 class RockPaperScissorsClass extends Component {
-  constructor () {
+  constructor() {
     super();
 
     this.state = {
@@ -38,7 +38,7 @@ class RockPaperScissorsClass extends Component {
 
   // 컴포넌트가 첫 렌더링된 후
   // 비동기 요청을 많이 함
-  componentDidMount () {
+  componentDidMount() {
     this.interval = setInterval(this.changeHand, 500);
   }
 
@@ -47,7 +47,7 @@ class RockPaperScissorsClass extends Component {
 
   // 컴포넌트가 제거되기 직전
   // 비동기 요청 정리
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearInterval(this.interval);
   }
 
@@ -103,7 +103,7 @@ class RockPaperScissorsClass extends Component {
     }
   };
 
-  render () {
+  render() {
     const {result, score, imgCoord} = this.state;
 
     return (
@@ -143,8 +143,7 @@ class RockPaperScissorsClass extends Component {
         <div>{result}</div>
         <div>
           현재&nbsp;
-          {score}
-점
+          {score}점
         </div>
       </>
     );

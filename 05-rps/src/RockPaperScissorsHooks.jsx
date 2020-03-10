@@ -106,8 +106,7 @@ const RockPaperScissorsHooks = () => {
       <div>{result}</div>
       <div>
         현재&nbsp;
-        {score}
-점
+        {score}점
       </div>
     </>
   );
