@@ -29,18 +29,18 @@ const NumberBaseballHooks = () => {
     setTries([]);
   };
 
-  const onSubmitForm = evt => {
+  const onSubmitForm = (evt) => {
     evt.preventDefault();
 
     if (value === answer.join('')) {
       setResult('홈런');
-      setTries(prevTries => {
+      setTries((prevTries) => {
         return [...prevTries, {try: value, result: '홈런'}];
       });
 
       reset();
     } else {
-      const answerArray = value.split('').map(v => parseInt(v, 10));
+      const answerArray = value.split('').map((v) => parseInt(v, 10));
 
       let strike = 0;
       let ball = 0;
@@ -60,7 +60,7 @@ const NumberBaseballHooks = () => {
 
         setValue('');
 
-        setTries(prevTries => {
+        setTries((prevTries) => {
           return [
             ...prevTries,
             {try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.`}
@@ -70,7 +70,7 @@ const NumberBaseballHooks = () => {
     }
   };
 
-  const onChangeInput = evt => {
+  const onChangeInput = (evt) => {
     setValue(evt.target.value);
   };
 

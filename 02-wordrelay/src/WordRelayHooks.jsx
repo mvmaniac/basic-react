@@ -6,7 +6,7 @@ const WordRelayHooks = () => {
   const [result, setResult] = useState('');
   const inputRef = useRef(null);
 
-  const onSubmitForm = e => {
+  const onSubmitForm = (e) => {
     e.preventDefault();
 
     if (word[word.length - 1] === value[0]) {
@@ -21,7 +21,7 @@ const WordRelayHooks = () => {
     inputRef.current.focus();
   };
 
-  const onChangeInput = e => {
+  const onChangeInput = (e) => {
     setValue(e.target.value);
   };
 

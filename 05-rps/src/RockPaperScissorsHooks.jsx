@@ -12,8 +12,8 @@ const SCORES = {
   PAPER: -1
 };
 
-const computerChoice = imgCoord => {
-  return Object.entries(RPS_COORDS).find(v => v[1] === imgCoord)[0];
+const computerChoice = (imgCoord) => {
+  return Object.entries(RPS_COORDS).find((v) => v[1] === imgCoord)[0];
 };
 
 const RockPaperScissorsHooks = () => {
@@ -43,7 +43,7 @@ const RockPaperScissorsHooks = () => {
     };
   }, [imgCoord]);
 
-  const onClickBtn = choice => () => {
+  const onClickBtn = (choice) => () => {
     clearInterval(interval.current);
 
     const myScore = SCORES[choice];
@@ -54,12 +54,12 @@ const RockPaperScissorsHooks = () => {
       setResult('비겼습니다.');
     } else if ([-1, 2].includes(diff)) {
       setResult('이겼습니다!');
-      setScore(prevScore => {
+      setScore((prevScore) => {
         return prevScore + 1;
       });
     } else {
       setResult('졌습니다.');
-      setScore(prevScore => {
+      setScore((prevScore) => {
         return prevScore - 1;
       });
     }

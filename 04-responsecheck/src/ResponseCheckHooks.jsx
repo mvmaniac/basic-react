@@ -40,7 +40,7 @@ const ResponseCheckHooks = () => {
       // 반응속도 체크
       setStateAndMessage('waiting', '클릭해서 시작하세요.');
 
-      setResult(prevResult => {
+      setResult((prevResult) => {
         return [...prevResult, endTime.current - startTime.current];
       });
     }

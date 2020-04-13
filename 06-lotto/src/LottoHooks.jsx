@@ -38,7 +38,7 @@ const LottoHooks = () => {
   const runTimeouts = () => {
     for (let i = 0, {length} = winNumbers; i < length - 1; i += 1) {
       timeouts.current[i] = setTimeout(() => {
-        setWinBalls(prevWinBalls => [...prevWinBalls, winNumbers[i]]);
+        setWinBalls((prevWinBalls) => [...prevWinBalls, winNumbers[i]]);
       }, (i + 1) * 1000);
     }
 
@@ -57,7 +57,7 @@ const LottoHooks = () => {
     return () => {
       // componentWillUnmount 역할
       console.log('useEffect return...');
-      timeouts.current.forEach(v => {
+      timeouts.current.forEach((v) => {
         clearTimeout(v);
       });
     };
@@ -83,7 +83,7 @@ const LottoHooks = () => {
     <>
       <div>당첨 숫자</div>
       <div id="결과창">
-        {winBalls.map(v => (
+        {winBalls.map((v) => (
           <BallHooks key={v} number={v} />
         ))}
       </div>

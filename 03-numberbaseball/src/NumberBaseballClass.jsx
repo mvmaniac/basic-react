@@ -28,13 +28,13 @@ class NumberBaseballClass extends Component {
     this.inputRef = createRef();
   }
 
-  onSubmitForm = evt => {
+  onSubmitForm = (evt) => {
     const {value, answer, tries} = this.state;
 
     evt.preventDefault();
 
     if (value === answer.join('')) {
-      this.setState(prevState => {
+      this.setState((prevState) => {
         return {
           result: '홈런!',
           tries: [...prevState.tries, {try: value, result: '홈런'}]
@@ -43,7 +43,7 @@ class NumberBaseballClass extends Component {
 
       this.reset();
     } else {
-      const answerArray = value.split('').map(v => parseInt(v, 10));
+      const answerArray = value.split('').map((v) => parseInt(v, 10));
 
       let strike = 0;
       let ball = 0;
@@ -63,7 +63,7 @@ class NumberBaseballClass extends Component {
           }
         }
 
-        this.setState(prevState => {
+        this.setState((prevState) => {
           return {
             value: '',
             tries: [
@@ -76,7 +76,7 @@ class NumberBaseballClass extends Component {
     }
   };
 
-  onChangeInput = evt => {
+  onChangeInput = (evt) => {
     this.setState({
       value: evt.target.value
     });

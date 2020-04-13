@@ -60,7 +60,7 @@ class LottoClass extends Component {
   componentWillUnmount() {
     console.log('componentWillUnmount...');
 
-    this.timeouts.forEach(v => {
+    this.timeouts.forEach((v) => {
       clearTimeout(v);
     });
   }
@@ -84,7 +84,7 @@ class LottoClass extends Component {
 
     for (let i = 0, {length} = winNumbers; i < length - 1; i += 1) {
       this.timeouts[i] = setTimeout(() => {
-        this.setState(prevState => {
+        this.setState((prevState) => {
           return {
             winBalls: [...prevState.winBalls, winNumbers[i]]
           };
@@ -107,7 +107,7 @@ class LottoClass extends Component {
       <>
         <div>당첨 숫자</div>
         <div id="결과창">
-          {winBalls.map(v => (
+          {winBalls.map((v) => (
             <BallClass key={v} number={v} />
           ))}
         </div>

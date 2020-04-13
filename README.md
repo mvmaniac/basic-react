@@ -1,15 +1,17 @@
 # Basic React
 
-### 1. 웹 게임을 만들며 배우는 React 강의의 실습 예제 기반
+### 1. 웹 게임을 만들며 배우는 React 강의 실습 예제 기반
 
 * [웹 게임을 만들며 배우는 React](https://www.inflearn.com/course/web-game-React "웹 게임을 만들며 배우는 React") 참고
 
 ### 2. 차이점
 
-* eslint & prettier 설정 추가
+* ESLint & Prettier 설정 추가
 * webpack 설정 변경
 
 ### 3. TODO
+
+*
 
 ### 4. Setting
 
@@ -45,6 +47,6 @@
 * babel
   
     ``` javascript
-    npm i -D @babel-core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties
+    npm i -D @babel/core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties
     npm i -D babel-loader babel-eslint
     ```

@@ -42,7 +42,7 @@ class ResponseCheckClass extends Component {
       this.endTime = new Date();
 
       // 반응속도 체크
-      this.setState(prevState => {
+      this.setState((prevState) => {
         return {
           state: 'waiting',
           message: '클릭해서 시작하세요.',

@@ -11,7 +11,7 @@ class WordRelayClass extends Component {
     };
   }
 
-  onSubmitForm = e => {
+  onSubmitForm = (e) => {
     const {word, value} = this.state;
 
     e.preventDefault();
@@ -32,11 +32,11 @@ class WordRelayClass extends Component {
     this.inputRef.focus();
   };
 
-  onChangeInput = e => {
+  onChangeInput = (e) => {
     this.setState({value: e.target.value});
   };
 
-  onInputRef = el => {
+  onInputRef = (el) => {
     this.inputRef = el;
   };
 

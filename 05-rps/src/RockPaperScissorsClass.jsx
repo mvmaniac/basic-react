@@ -19,8 +19,8 @@ const SCORES = {
   PAPER: -1
 };
 
-const computerChoice = imgCoord => {
-  return Object.entries(RPS_COORDS).find(v => v[1] === imgCoord)[0];
+const computerChoice = (imgCoord) => {
+  return Object.entries(RPS_COORDS).find((v) => v[1] === imgCoord)[0];
 };
 
 class RockPaperScissorsClass extends Component {
@@ -51,7 +51,7 @@ class RockPaperScissorsClass extends Component {
     clearInterval(this.interval);
   }
 
-  onClickBtn = choice => () => {
+  onClickBtn = (choice) => () => {
     const {imgCoord} = this.state;
 
     clearInterval(this.interval);
@@ -65,14 +65,14 @@ class RockPaperScissorsClass extends Component {
         result: '비겼습니다.'
       });
     } else if ([-1, 2].includes(diff)) {
-      this.setState(prevState => {
+      this.setState((prevState) => {
         return {
           result: '이겼습니다!',
           score: prevState.score + 1
         };
       });
     } else {
-      this.setState(prevState => {
+      this.setState((prevState) => {
         return {
           result: '졌습니다.',
           score: prevState.score - 1

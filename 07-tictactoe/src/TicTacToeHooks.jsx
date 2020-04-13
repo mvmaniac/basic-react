@@ -113,8 +113,8 @@ const TicTacToeHooks = () => {
       let all = true;
 
       // 무승부 검사
-      tableData.forEach(rowData => {
-        rowData.forEach(cellData => {
+      tableData.forEach((rowData) => {
+        rowData.forEach((cellData) => {
           if (!cellData) {
             all = false;
           }
