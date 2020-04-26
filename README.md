@@ -1,6 +1,6 @@
 # Basic React
 
-### 1. 웹 게임을 만들며 배우는 React 강의 실습 예제 기반
+### 1. 강의 실습 예제 기반
 
 * [웹 게임을 만들며 배우는 React](https://www.inflearn.com/course/web-game-React "웹 게임을 만들며 배우는 React") 참고
 

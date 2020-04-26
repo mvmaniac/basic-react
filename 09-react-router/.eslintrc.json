@@ -39,16 +39,15 @@
     // ],
 
     "no-unused-vars": ["warn"],
-    
+    "react/prop-types": ["off"],
+    "jsx-a11y/click-events-have-key-events": ["off"],
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "packageDir": "."
+        "devDependencies": [
+          "**/webpack.*.js"
+        ]
       }
-    ],
-
-    "react/prop-types": ["off"],
-
-    "jsx-a11y/click-events-have-key-events": ["off"]
+    ]
   }
 }
