@@ -27,16 +27,12 @@ module.exports = {
                     targets: {
                       // https://github.com/browserslist/browserslist 참고
                       browsers: ['defaults']
-                    },
-                    debug: true
+                    }
                   }
                 ],
                 '@babel/preset-react'
               ],
-              plugins: [
-                '@babel/plugin-proposal-class-properties',
-                'react-hot-loader/babel'
-              ]
+              plugins: ['@babel/plugin-proposal-class-properties']
             }
           }
         ]
@@ -48,8 +44,7 @@ module.exports = {
 
   // 출력
   output: {
-    publicPath: '/dist', // webpack-dev-server 때문에 사용함
-    path: path.join(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'app.js'
   }
 };
