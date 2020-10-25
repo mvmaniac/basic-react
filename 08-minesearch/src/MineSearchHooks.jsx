@@ -141,7 +141,7 @@ const reducer = (state, action) => {
           );
         }
 
-        const count = around.filter(v =>
+        const count = around.filter((v) =>
           [CODE.MINE, CODE.FLAG_MINE, CODE.QUESTION_MINE].includes(v)
         ).length;
 
@@ -164,7 +164,7 @@ const reducer = (state, action) => {
             near.push([row + 1, cell + 1]);
           }
 
-          near.forEach(n => {
+          near.forEach((n) => {
             if (tableData[n[0]][n[1]] !== CODE.OPENED) {
               checkAround(n[0], n[1]);
             }

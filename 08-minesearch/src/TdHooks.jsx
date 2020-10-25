@@ -9,7 +9,7 @@ import {
   NORMALIZE_CELL
 } from './Const';
 
-const getTdStyle = code => {
+const getTdStyle = (code) => {
   switch (code) {
     case CODE.NORMAL:
     case CODE.MINE: {
@@ -43,7 +43,7 @@ const getTdStyle = code => {
   }
 };
 
-const getTdText = code => {
+const getTdText = (code) => {
   switch (code) {
     case CODE.NORMAL: {
       return '';
@@ -103,7 +103,7 @@ const TdHooks = memo(({rowIndex, cellIndex}) => {
   }, [tableData[rowIndex][cellIndex], halted]);
 
   const onRightClickTd = useCallback(
-    evt => {
+    (evt) => {
       evt.preventDefault();
 
       // 게임이 멈췄으면 아무것도 하지 않음
