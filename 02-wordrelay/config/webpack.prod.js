@@ -1,7 +1,7 @@
 const {merge} = require('webpack-merge');
-const common = require('./webpack.common');
+const {config} = require('./webpack.common');
 
-module.exports = merge(common, {
+module.exports = merge(config, {
   mode: 'production',
   devtool: 'hidden-source-map'
 });

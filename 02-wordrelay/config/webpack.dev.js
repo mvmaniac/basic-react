@@ -1,16 +1,12 @@
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const webpack = require('webpack');
 const {merge, mergeWithRules} = require('webpack-merge');
-const common = require('./webpack.common');
+const {config, expansion} = require('./webpack.common');
 
-const configMerge = merge(common, {
+const configMerge = merge(config, {
   mode: 'development',
   devtool: 'eval-cheap-source-map',
 
-  plugins: [
-    new webpack.LoaderOptionsPlugin({debug: true}),
-    new ReactRefreshWebpackPlugin()
-  ],
+  plugins: [new ReactRefreshWebpackPlugin()],
 
   devServer: {
     publicPath: '/dist',
@@ -28,18 +24,9 @@ const devRules = {
           {
             loader: 'babel-loader',
             options: {
-              presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    targets: {browsers: ['defaults']},
-                    debug: true
-                  }
-                ],
-                '@babel/preset-react'
-              ],
+              presets: expansion.babelLoaderOptions.presets,
               plugins: [
-                '@babel/plugin-proposal-class-properties',
+                ...expansion.babelLoaderOptions.plugins,
                 'react-refresh/babel'
               ]
             }
