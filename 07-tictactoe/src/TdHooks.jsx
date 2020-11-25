@@ -25,6 +25,7 @@ const TdHooks = memo(({rowIndex, cellIndex, cellData, dispatch}) => {
 
     // 비동기 임
     dispatch({type: CLICK_CELL, row: rowIndex, cell: cellIndex});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cellData]);
 
   return (

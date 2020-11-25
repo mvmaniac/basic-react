@@ -64,7 +64,7 @@ const reducer = (state, action) => {
         timer: 0,
         result: '',
         halted: false,
-        opendCount: 0
+        openedCount: 0
       };
     }
     case CLICK_MINE: {
@@ -86,7 +86,7 @@ const reducer = (state, action) => {
         tableData[i] = [...row];
       });
 
-      let opendCount = 0;
+      let openedCount = 0;
       const checked = [];
       const checkAround = (row, cell) => {
         // 상/하/좌/우 칸이 아닌 경우 필터링
@@ -173,7 +173,7 @@ const reducer = (state, action) => {
 
         // 내 칸인 닫힌 칸이라면 카운트 증가
         if (tableData[row][cell] === CODE.NORMAL) {
-          opendCount += 1;
+          openedCount += 1;
         }
 
         tableData[row][cell] = count;
@@ -185,10 +185,10 @@ const reducer = (state, action) => {
       let halted = false;
       let result = '';
 
-      opendCount = state.opendCount + opendCount;
+      openedCount = state.openedCount + openedCount;
 
       // 승리
-      if (row * cell - mine === opendCount) {
+      if (row * cell - mine === openedCount) {
         halted = true;
         result = `${state.timer}초 안에 승리 하셨습니다!`;
       }
@@ -198,7 +198,7 @@ const reducer = (state, action) => {
         tableData,
         result,
         halted,
-        opendCount
+        openedCount
       };
     }
     case FLAG_CELL: {
@@ -271,12 +271,13 @@ const initialState = {
   timer: 0,
   result: '',
   halted: true,
-  opendCount: 0
+  openedCount: 0
 };
 
 const MineSearchHooks = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {tableData, timer, result, halted} = state;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const value = useMemo(() => ({tableData, halted, dispatch}), [tableData]);
 
   useEffect(() => {

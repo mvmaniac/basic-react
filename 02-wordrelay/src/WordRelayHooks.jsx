@@ -6,8 +6,8 @@ const WordRelayHooks = () => {
   const [result, setResult] = useState('');
   const inputRef = useRef(null);
 
-  const onSubmitForm = (e) => {
-    e.preventDefault();
+  const onSubmitForm = (event) => {
+    event.preventDefault();
 
     if (word[word.length - 1] === value[0]) {
       setResult('딩동댕');
@@ -21,8 +21,8 @@ const WordRelayHooks = () => {
     inputRef.current.focus();
   };
 
-  const onChangeInput = (e) => {
-    setValue(e.target.value);
+  const onChangeInput = (event) => {
+    setValue(event.target.value);
   };
 
   return (
@@ -36,7 +36,7 @@ const WordRelayHooks = () => {
           ref={inputRef}
         />
         &nbsp;
-        <button type="button">입력!(hooks)</button>
+        <button type="submit">입력!(hooks)</button>
       </form>
       <div>{result}</div>
     </>

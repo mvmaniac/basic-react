@@ -22,6 +22,7 @@ const FormHooks = memo(() => {
 
   const onClickBtn = useCallback(() => {
     dispatch({type: START_GAME, row, cell, mine});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [row, cell, mine]);
 
   return (

@@ -27,10 +27,12 @@ const NumberBaseballHooks = () => {
     setValue('');
     setAnswer(getNumbers());
     setTries([]);
+
+    inputRef.current.focus();
   };
 
-  const onSubmitForm = (evt) => {
-    evt.preventDefault();
+  const onSubmitForm = (event) => {
+    event.preventDefault();
 
     if (value === answer.join('')) {
       setResult('홈런');
@@ -58,6 +60,7 @@ const NumberBaseballHooks = () => {
           }
         }
 
+        setResult('');
         setValue('');
 
         setTries((prevTries) => {
@@ -70,8 +73,8 @@ const NumberBaseballHooks = () => {
     }
   };
 
-  const onChangeInput = (evt) => {
-    setValue(evt.target.value);
+  const onChangeInput = (event) => {
+    setValue(event.target.value);
   };
 
   return (
@@ -86,7 +89,7 @@ const NumberBaseballHooks = () => {
         />
       </form>
       <div>
-        시도:&nbsp;
+        시도(hooks):&nbsp;
         {tries.length}
       </div>
       <ul>

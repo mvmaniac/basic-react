@@ -100,6 +100,7 @@ const TdHooks = memo(({rowIndex, cellIndex}) => {
         break;
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tableData[rowIndex][cellIndex], halted]);
 
   const onRightClickTd = useCallback(
@@ -132,6 +133,7 @@ const TdHooks = memo(({rowIndex, cellIndex}) => {
         }
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [tableData[rowIndex][cellIndex], halted]
   );
 
@@ -146,6 +148,7 @@ const TdHooks = memo(({rowIndex, cellIndex}) => {
         {getTdText(code)}
       </td>
     ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [tableData[rowIndex][cellIndex]]
   );
 });

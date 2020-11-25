@@ -127,6 +127,7 @@ const TicTacToeHooks = () => {
         dispatch({type: CHANGE_TURN});
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recentCell]);
 
   return (

@@ -63,6 +63,7 @@ const LottoHooks = () => {
     };
     // 배열에 요소가 있으면 componentDidMount와 componentDidUpdate 둘 다 수행
     // 빈 배열이면 componentDidMount와 동일
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeouts.current]);
 
   // useCallback 함수 자체를 기억한다. 두 번째 인자가로 설정한 변수의 상태가 바뀌기 전까지...
@@ -81,7 +82,7 @@ const LottoHooks = () => {
 
   return (
     <>
-      <div>당첨 숫자</div>
+      <div>당첨 숫자(hooks)</div>
       <div id="결과창">
         {winBalls.map((v) => (
           <BallHooks key={v} number={v} />

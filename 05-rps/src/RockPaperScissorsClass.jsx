@@ -9,13 +9,13 @@ import React, {Component} from 'react';
 
 const RPS_COORDS = {
   ROCK: '0',
-  SISSORS: '-142px',
+  SCISSORS: '-142px',
   PAPER: '-284px'
 };
 
 const SCORES = {
   ROCK: 0,
-  SISSORS: 1,
+  SCISSORS: 1,
   PAPER: -1
 };
 
@@ -90,9 +90,9 @@ class RockPaperScissorsClass extends Component {
 
     if (imgCoord === RPS_COORDS.ROCK) {
       this.setState({
-        imgCoord: RPS_COORDS.SISSORS
+        imgCoord: RPS_COORDS.SCISSORS
       });
-    } else if (imgCoord === RPS_COORDS.SISSORS) {
+    } else if (imgCoord === RPS_COORDS.SCISSORS) {
       this.setState({
         imgCoord: RPS_COORDS.PAPER
       });
@@ -119,7 +119,7 @@ class RockPaperScissorsClass extends Component {
             type="button"
             id="scissors"
             className="btn"
-            onClick={this.onClickBtn('SISSORS')}
+            onClick={this.onClickBtn('SCISSORS')}
           >
             가위
           </button>
@@ -143,7 +143,7 @@ class RockPaperScissorsClass extends Component {
         <div>{result}</div>
         <div>
           현재&nbsp;
-          {score}점
+          {score}점(class)
         </div>
       </>
     );

@@ -105,7 +105,7 @@ class LottoClass extends Component {
 
     return (
       <>
-        <div>당첨 숫자</div>
+        <div>당첨 숫자(class)</div>
         <div id="결과창">
           {winBalls.map((v) => (
             <BallClass key={v} number={v} />

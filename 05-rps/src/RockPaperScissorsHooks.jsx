@@ -2,13 +2,13 @@ import React, {useState, useRef, useEffect} from 'react';
 
 const RPS_COORDS = {
   ROCK: '0',
-  SISSORS: '-142px',
+  SCISSORS: '-142px',
   PAPER: '-284px'
 };
 
 const SCORES = {
   ROCK: 0,
-  SISSORS: 1,
+  SCISSORS: 1,
   PAPER: -1
 };
 
@@ -25,8 +25,8 @@ const RockPaperScissorsHooks = () => {
 
   const changeHand = () => {
     if (imgCoord === RPS_COORDS.ROCK) {
-      setImgCoord(RPS_COORDS.SISSORS);
-    } else if (imgCoord === RPS_COORDS.SISSORS) {
+      setImgCoord(RPS_COORDS.SCISSORS);
+    } else if (imgCoord === RPS_COORDS.SCISSORS) {
       setImgCoord(RPS_COORDS.PAPER);
     } else if (imgCoord === RPS_COORDS.PAPER) {
       setImgCoord(RPS_COORDS.ROCK);
@@ -41,6 +41,7 @@ const RockPaperScissorsHooks = () => {
       // componentWillUnmount 역할
       clearInterval(interval.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imgCoord]);
 
   const onClickBtn = (choice) => () => {
@@ -82,7 +83,7 @@ const RockPaperScissorsHooks = () => {
           type="button"
           id="scissors"
           className="btn"
-          onClick={onClickBtn('SISSORS')}
+          onClick={onClickBtn('SCISSORS')}
         >
           가위
         </button>
@@ -106,7 +107,7 @@ const RockPaperScissorsHooks = () => {
       <div>{result}</div>
       <div>
         현재&nbsp;
-        {score}점
+        {score}점(hooks)
       </div>
     </>
   );

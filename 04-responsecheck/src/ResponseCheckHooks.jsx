@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 
 const ResponseCheckHooks = () => {
   const [state, setSate] = useState('waiting');
-  const [message, setMessage] = useState('클릭해서 시작하세요');
+  const [message, setMessage] = useState('클릭해서 시작하세요.(hooks)');
   const [result, setResult] = useState([]);
 
   const timeout = useRef(null);
@@ -38,7 +38,7 @@ const ResponseCheckHooks = () => {
       endTime.current = new Date();
 
       // 반응속도 체크
-      setStateAndMessage('waiting', '클릭해서 시작하세요.');
+      setStateAndMessage('waiting', '클릭해서 시작하세요.(hooks)');
 
       setResult((prevResult) => {
         return [...prevResult, endTime.current - startTime.current];

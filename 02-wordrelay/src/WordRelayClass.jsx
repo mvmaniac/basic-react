@@ -11,10 +11,10 @@ class WordRelayClass extends Component {
     };
   }
 
-  onSubmitForm = (e) => {
+  onSubmitForm = (event) => {
     const {word, value} = this.state;
 
-    e.preventDefault();
+    event.preventDefault();
 
     if (word[word.length - 1] === value[0]) {
       this.setState({
@@ -32,8 +32,8 @@ class WordRelayClass extends Component {
     this.inputRef.focus();
   };
 
-  onChangeInput = (e) => {
-    this.setState({value: e.target.value});
+  onChangeInput = (event) => {
+    this.setState({value: event.target.value});
   };
 
   onInputRef = (el) => {
@@ -54,7 +54,7 @@ class WordRelayClass extends Component {
             ref={this.onInputRef}
           />
           &nbsp;
-          <button type="button">입력! (class)</button>
+          <button type="submit">입력! (class)</button>
         </form>
         <div>{result}</div>
       </>
