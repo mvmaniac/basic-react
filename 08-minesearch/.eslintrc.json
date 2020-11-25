@@ -2,13 +2,9 @@
   "env": {
     "browser": true,
     "node": true,
-    "es2020": true
+    "es2021": true
   },
-  "extends": [
-    "airbnb",
-    "plugin:prettier/recommended",
-    "prettier/react"
-  ],
+  "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/react"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -18,35 +14,18 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "plugins": [
-    "import",
-    "jsx-a11y",
-    "react",
-    "react-hooks",
-    "prettier"
-  ],
+  "plugins": ["react", "react-hooks", "jsx-a11y", "import"],
   "rules": {
-    // "space-before-function-paren": [
-    //   "error",
-    //   {
-    //     "anonymous": "always",
-    //     "named": "always",
-    //     "asyncArrow": "always"
-    //   }
-    // ],
-
-    "no-unused-vars": ["warn"], 
+    "no-unused-vars": ["warn"],
     "react/prop-types": ["off"],
     "jsx-a11y/click-events-have-key-events": ["off"],
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/webpack.*.js"
-        ]
+        "devDependencies": ["**/webpack.*.js"]
       }
     ]
   }
