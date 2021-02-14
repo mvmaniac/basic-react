@@ -100,10 +100,16 @@
 
 - babel
 
+  babel-eslint가 @babel/eslint-parser로 변경 되었고
+  그러면서 별도의 babel config 파일이 필요한데
+  현재 예제 상 babel-eslint가 필요한 부분이 클래스 컴포넌트에서
+  화살표 함수로 속성을 사용한 경우라서 그냥 넘어감
+
   ```javascript
   npm i -D @babel/core @babel/preset-env @babel/preset-react
-  npm i -D babel-loader babel-eslint
   npm i -D @babel/plugin-proposal-class-properties
+  npm i -D babel-loader
+  npm i -D babel-eslint
   ```
 
 - typescript
