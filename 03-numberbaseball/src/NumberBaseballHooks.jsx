@@ -36,9 +36,7 @@ const NumberBaseballHooks = () => {
 
     if (value === answer.join('')) {
       setResult('홈런');
-      setTries((prevTries) => {
-        return [...prevTries, {try: value, result: '홈런'}];
-      });
+      setTries((prevTries) => [...prevTries, {try: value, result: '홈런'}]);
 
       reset();
     } else {
@@ -63,12 +61,10 @@ const NumberBaseballHooks = () => {
         setResult('');
         setValue('');
 
-        setTries((prevTries) => {
-          return [
-            ...prevTries,
-            {try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.`}
-          ];
-        });
+        setTries((prevTries) => [
+          ...prevTries,
+          {try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.`}
+        ]);
       }
     }
   };
@@ -93,9 +89,9 @@ const NumberBaseballHooks = () => {
         {tries.length}
       </div>
       <ul>
-        {tries.map((v, idx) => {
-          return <TryHooks key={`${idx + 1}차 시도 : `} tryInfo={v} />;
-        })}
+        {tries.map((v, idx) => (
+          <TryHooks key={`${idx + 1}차 시도 : `} tryInfo={v} />
+        ))}
       </ul>
     </>
   );

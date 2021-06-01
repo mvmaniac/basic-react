@@ -19,9 +19,8 @@ const SCORES = {
   PAPER: -1
 };
 
-const computerChoice = (imgCoord) => {
-  return Object.entries(RPS_COORDS).find((v) => v[1] === imgCoord)[0];
-};
+const computerChoice = (imgCoord) =>
+  Object.entries(RPS_COORDS).find((v) => v[1] === imgCoord)[0];
 
 class RockPaperScissorsClass extends Component {
   constructor() {
@@ -65,19 +64,15 @@ class RockPaperScissorsClass extends Component {
         result: '비겼습니다.'
       });
     } else if ([-1, 2].includes(diff)) {
-      this.setState((prevState) => {
-        return {
-          result: '이겼습니다!',
-          score: prevState.score + 1
-        };
-      });
+      this.setState((prevState) => ({
+        result: '이겼습니다!',
+        score: prevState.score + 1
+      }));
     } else {
-      this.setState((prevState) => {
-        return {
-          result: '졌습니다.',
-          score: prevState.score - 1
-        };
-      });
+      this.setState((prevState) => ({
+        result: '졌습니다.',
+        score: prevState.score - 1
+      }));
     }
 
     setTimeout(() => {
