@@ -4,29 +4,32 @@
     "node": true,
     "es2021": true
   },
-  "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/react"],
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 2021,
-    "sourceType": "module"
+    "sourceType": "module",
+    "babelOptions": {
+      "configFile": "./babel.config.js"
+    }
   },
-  "plugins": ["react", "react-hooks", "jsx-a11y", "import"],
+  "plugins": ["import", "jsx-a11y", "react", "react-hooks"],
   "rules": {
     "no-unused-vars": ["warn"],
-    "react/prop-types": ["off"],
-    "jsx-a11y/click-events-have-key-events": ["off"],
     "import/no-extraneous-dependencies": [
       "error",
       {
         "devDependencies": ["**/webpack.*.js"]
       }
-    ]
+    ],
+    "jsx-a11y/click-events-have-key-events": ["off"],
+    "react/prop-types": ["off"]
   }
 }
