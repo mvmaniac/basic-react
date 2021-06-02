@@ -45,12 +45,10 @@ class NumberBaseballClass extends Component<Record<string, unknown>, State> {
     event.preventDefault();
 
     if (value === answer.join('')) {
-      this.setState((prevState) => {
-        return {
-          result: '홈런!',
-          tries: [...prevState.tries, {try: value, result: '홈런'}]
-        };
-      });
+      this.setState((prevState) => ({
+        result: '홈런!',
+        tries: [...prevState.tries, {try: value, result: '홈런'}]
+      }));
 
       this.reset();
     } else {
@@ -74,16 +72,14 @@ class NumberBaseballClass extends Component<Record<string, unknown>, State> {
           }
         }
 
-        this.setState((prevState) => {
-          return {
-            result: '',
-            value: '',
-            tries: [
-              ...prevState.tries,
-              {try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.`}
-            ]
-          };
-        });
+        this.setState((prevState) => ({
+          result: '',
+          value: '',
+          tries: [
+            ...prevState.tries,
+            {try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.`}
+          ]
+        }));
       }
     }
   };
@@ -123,9 +119,9 @@ class NumberBaseballClass extends Component<Record<string, unknown>, State> {
           {tries.length}
         </div>
         <ul>
-          {tries.map((v, idx) => {
-            return <TryClass key={`${idx + 1}차 시도 : `} tryInfo={v} />;
-          })}
+          {tries.map((v, idx) => (
+            <TryClass key={`${idx + 1}차 시도 : `} tryInfo={v} />
+          ))}
         </ul>
       </>
     );

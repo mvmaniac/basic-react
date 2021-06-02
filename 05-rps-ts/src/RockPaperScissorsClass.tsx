@@ -22,13 +22,10 @@ const SCORES = {
 
 type ImgCoords = typeof RPS_COORDS[keyof typeof RPS_COORDS];
 
-const computerChoice = (imgCoord: ImgCoords) => {
-  return (
-    (Object.keys(RPS_COORDS) as ['ROCK', 'SCISSORS', 'PAPER']).find((k) => {
-      return RPS_COORDS[k] === imgCoord;
-    }) ?? 'ROCK'
-  );
-};
+const computerChoice = (imgCoord: ImgCoords) =>
+  (Object.keys(RPS_COORDS) as ['ROCK', 'SCISSORS', 'PAPER']).find(
+    (k) => RPS_COORDS[k] === imgCoord
+  ) ?? 'ROCK';
 
 interface State {
   result: string;
@@ -78,19 +75,15 @@ class RockPaperScissorsClass extends Component<Record<string, unknown>, State> {
         result: '비겼습니다.'
       });
     } else if ([-1, 2].includes(diff)) {
-      this.setState((prevState) => {
-        return {
-          result: '이겼습니다!',
-          score: prevState.score + 1
-        };
-      });
+      this.setState((prevState) => ({
+        result: '이겼습니다!',
+        score: prevState.score + 1
+      }));
     } else {
-      this.setState((prevState) => {
-        return {
-          result: '졌습니다.',
-          score: prevState.score - 1
-        };
-      });
+      this.setState((prevState) => ({
+        result: '졌습니다.',
+        score: prevState.score - 1
+      }));
     }
 
     setTimeout(() => {

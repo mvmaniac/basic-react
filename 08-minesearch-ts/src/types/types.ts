@@ -30,14 +30,12 @@ export const startGame = (
   row: number,
   cell: number,
   mine: number
-): StartGameAction => {
-  return {
-    type: START_GAME,
-    row,
-    cell,
-    mine
-  };
-};
+): StartGameAction => ({
+  type: START_GAME,
+  row,
+  cell,
+  mine
+});
 
 interface OpenCellAction {
   type: typeof OPEN_CELL;
@@ -45,13 +43,11 @@ interface OpenCellAction {
   cell: number;
 }
 
-export const openCell = (row: number, cell: number): OpenCellAction => {
-  return {
-    type: OPEN_CELL,
-    row,
-    cell
-  };
-};
+export const openCell = (row: number, cell: number): OpenCellAction => ({
+  type: OPEN_CELL,
+  row,
+  cell
+});
 
 interface ClickMineAction {
   type: typeof CLICK_MINE;
@@ -59,13 +55,11 @@ interface ClickMineAction {
   cell: number;
 }
 
-export const clickMine = (row: number, cell: number): ClickMineAction => {
-  return {
-    type: CLICK_MINE,
-    row,
-    cell
-  };
-};
+export const clickMine = (row: number, cell: number): ClickMineAction => ({
+  type: CLICK_MINE,
+  row,
+  cell
+});
 
 interface FlagMineAction {
   type: typeof FLAG_CELL;
@@ -73,13 +67,11 @@ interface FlagMineAction {
   cell: number;
 }
 
-export const flagMine = (row: number, cell: number): FlagMineAction => {
-  return {
-    type: FLAG_CELL,
-    row,
-    cell
-  };
-};
+export const flagMine = (row: number, cell: number): FlagMineAction => ({
+  type: FLAG_CELL,
+  row,
+  cell
+});
 
 interface QuestionCellAction {
   type: typeof QUESTION_CELL;
@@ -87,13 +79,14 @@ interface QuestionCellAction {
   cell: number;
 }
 
-export const questionCell = (row: number, cell: number): QuestionCellAction => {
-  return {
-    type: QUESTION_CELL,
-    row,
-    cell
-  };
-};
+export const questionCell = (
+  row: number,
+  cell: number
+): QuestionCellAction => ({
+  type: QUESTION_CELL,
+  row,
+  cell
+});
 
 interface NormalizeCellAction {
   type: typeof NORMALIZE_CELL;
@@ -104,23 +97,19 @@ interface NormalizeCellAction {
 export const normalizeCell = (
   row: number,
   cell: number
-): NormalizeCellAction => {
-  return {
-    type: NORMALIZE_CELL,
-    row,
-    cell
-  };
-};
+): NormalizeCellAction => ({
+  type: NORMALIZE_CELL,
+  row,
+  cell
+});
 
 interface IncrementTimerAction {
   type: typeof INCREMENT_TIMER;
 }
 
-export const incrementTimer = (): IncrementTimerAction => {
-  return {
-    type: INCREMENT_TIMER
-  };
-};
+export const incrementTimer = (): IncrementTimerAction => ({
+  type: INCREMENT_TIMER
+});
 
 export type ReducerActions =
   | StartGameAction

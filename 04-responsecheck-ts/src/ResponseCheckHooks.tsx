@@ -43,9 +43,10 @@ const ResponseCheckHooks = (): JSX.Element => {
       // 반응속도 체크
       setStateAndMessage('waiting', '클릭해서 시작하세요.(hooks)');
 
-      setResult((prevResult) => {
-        return [...prevResult, endTime.current - startTime.current];
-      });
+      setResult((prevResult) => [
+        ...prevResult,
+        endTime.current - startTime.current
+      ]);
     }
   }, [state]);
 
@@ -53,8 +54,8 @@ const ResponseCheckHooks = (): JSX.Element => {
     setResult([]);
   }, []);
 
-  const renderAverage = () => {
-    return result.length === 0 ? null : (
+  const renderAverage = () =>
+    result.length === 0 ? null : (
       <>
         <div>
           평균시간:&nbsp;
@@ -66,7 +67,6 @@ const ResponseCheckHooks = (): JSX.Element => {
         </button>
       </>
     );
-  };
 
   return (
     <>

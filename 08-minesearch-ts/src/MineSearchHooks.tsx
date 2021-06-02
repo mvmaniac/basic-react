@@ -126,13 +126,15 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
         }
 
         if (
-          ([
-            CODE.OPENED,
-            CODE.FLAG_MINE,
-            CODE.FLAG,
-            CODE.QUESTION_MINE,
-            CODE.QUESTION
-          ] as Codes[]).includes(tableData[row][cell])
+          (
+            [
+              CODE.OPENED,
+              CODE.FLAG_MINE,
+              CODE.FLAG,
+              CODE.QUESTION_MINE,
+              CODE.QUESTION
+            ] as Codes[]
+          ).includes(tableData[row][cell])
         ) {
           return;
         }
@@ -245,10 +247,10 @@ const MineSearchHooks = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {tableData, timer, result, halted} = state;
 
-  const value = useMemo(() => ({tableData, halted, dispatch}), [
-    tableData,
-    halted
-  ]);
+  const value = useMemo(
+    () => ({tableData, halted, dispatch}),
+    [tableData, halted]
+  );
 
   useEffect(() => {
     let interval: number;

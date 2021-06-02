@@ -95,11 +95,9 @@ class LottoClass extends Component<Record<string, unknown>, State> {
 
     for (let i = 0, {length} = winNumbers; i < length - 1; i += 1) {
       this.timeouts[i] = window.setTimeout(() => {
-        this.setState((prevState) => {
-          return {
-            winBalls: [...prevState.winBalls, winNumbers[i]]
-          };
-        });
+        this.setState((prevState) => ({
+          winBalls: [...prevState.winBalls, winNumbers[i]]
+        }));
       }, (i + 1) * 1000);
     }
 

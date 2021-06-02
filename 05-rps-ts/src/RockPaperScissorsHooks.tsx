@@ -15,13 +15,10 @@ const SCORES = {
 
 type ImgCoords = typeof RPS_COORDS[keyof typeof RPS_COORDS];
 
-const computerChoice = (imgCoord: ImgCoords) => {
-  return (
-    (Object.keys(RPS_COORDS) as ['ROCK', 'SCISSORS', 'PAPER']).find((k) => {
-      return RPS_COORDS[k] === imgCoord;
-    }) ?? 'ROCK'
-  );
-};
+const computerChoice = (imgCoord: ImgCoords) =>
+  (Object.keys(RPS_COORDS) as ['ROCK', 'SCISSORS', 'PAPER']).find(
+    (k) => RPS_COORDS[k] === imgCoord
+  ) ?? 'ROCK';
 
 const RockPaperScissorsHooks = (): JSX.Element => {
   const [imgCoord, setImgCoord] = useState<ImgCoords>(RPS_COORDS.ROCK);
@@ -62,14 +59,10 @@ const RockPaperScissorsHooks = (): JSX.Element => {
       setResult('비겼습니다.');
     } else if ([-1, 2].includes(diff)) {
       setResult('이겼습니다!');
-      setScore((prevScore) => {
-        return prevScore + 1;
-      });
+      setScore((prevScore) => prevScore + 1);
     } else {
       setResult('졌습니다.');
-      setScore((prevScore) => {
-        return prevScore - 1;
-      });
+      setScore((prevScore) => prevScore - 1);
     }
 
     setTimeout(() => {
