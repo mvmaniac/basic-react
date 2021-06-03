@@ -1,10 +1,12 @@
 {
+  "extends": "./tsconfig-base",
   "compilerOptions": {
-    "strict": true,
-    "target": "ES2015",
-    "lib": ["ES2020", "DOM"],
     "outDir": "dist",
-    "jsx": "react"
+    "jsx": "react",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": false
   },
-  "include": ["client.tsx", "src/**/*.tsx", "src/types/*.ts", "config/**/*.js"]
+  "include": ["src/**/*", "config/**/*", "client.tsx", "babel.config.js"],
+  "exclude": ["node_modules", "dist"]
 }

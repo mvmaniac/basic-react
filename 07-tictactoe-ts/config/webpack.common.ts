@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
+import * as path from 'path';
+import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import {Configuration} from 'webpack';
 
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
-module.exports = {
+const commonConfig: Configuration = {
   name: 'tic-tac-toe-ts-config',
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts']
@@ -18,14 +17,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/, // .ts or .tsx
+        test: /\.(ts|js)x?$/, // .ts or .tsx or .js or .jsx
         exclude: /node_modules/,
         use: [
           {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true
-            }
+            loader: 'babel-loader',
+            options: {}
           }
         ]
       }
@@ -33,7 +30,7 @@ module.exports = {
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin.CleanWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
         enabled: true,
@@ -45,7 +42,9 @@ module.exports = {
   // 출력
   output: {
     publicPath: '/dist',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.join(__dirname, '../dist'),
     filename: '[name].js'
   }
 };
+
+export default commonConfig;
