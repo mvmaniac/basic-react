@@ -2,7 +2,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const {merge, mergeWithRules} = require('webpack-merge');
 const common = require('./webpack.common');
 
-const configMerge = merge(common, {
+const mergeConfig = merge(common, {
   mode: 'development',
   devtool: 'eval-cheap-source-map',
 
@@ -15,7 +15,7 @@ const configMerge = merge(common, {
   }
 });
 
-const devRules = {
+const extendDevConfig = {
   module: {
     rules: [
       {
@@ -43,4 +43,4 @@ module.exports = mergeWithRules({
       }
     }
   }
-})(configMerge, devRules);
+})(mergeConfig, extendDevConfig);
