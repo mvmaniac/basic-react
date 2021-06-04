@@ -35,16 +35,17 @@
   npm i -D react-refresh
   ```
 
-- react refresh with webpack5
+- react refresh with webpack5, babel-loader
 
   ```javascript
   npm i -D react-refresh @pmmmwh/react-refresh-webpack-plugin
   ```
 
-- react refresh with webpack5, typescript
+- react refresh with webpack5, ts-loader
 
   ```javascript
-  npm i -D react-refresh @pmmmwh/react-refresh-webpack-plugin react-refresh-typescript
+  npm i -D react-refresh @pmmmwh/react-refresh-webpack-plugin
+  npm i -D react-refresh-typescript
   ```
 
 - webpack5
@@ -52,13 +53,19 @@
   ```javascript
   npm i -D webpack webpack-cli webpack-merge webpack-dev-server
   npm i -D clean-webpack-plugin eslint-webpack-plugin
+  npm i -D babel-loader core-js
   ```
 
 - webpack5 with typescript
 
+  .ts 파일로 작성 할 경우 ts-node가 필요함
+  babel-loader or ts-loader 둘 중에 하나 선택 (예제는 babel-loader 기준)
+
   ```javascript
   npm i -D webpack webpack-cli webpack-merge webpack-dev-server
   npm i -D clean-webpack-plugin fork-ts-checker-webpack-plugin
+  npm i -D babel-loader core-js
+  npm i -D ts-node
   ```
 
 - eslint with react
@@ -66,6 +73,7 @@
   ```javascript
   npm i -D eslint
   npm i -D eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
+  npm i -D @babel/eslint-parser
   ```
 
 - eslint with react, typescript
@@ -73,6 +81,7 @@
   ```javascript
   npm i -D eslint
   npm i -D eslint-config-airbnb-typescript eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
+  npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser
   ```
 
 - prettier
@@ -100,23 +109,15 @@
 
 - babel
 
-  babel-eslint가 @babel/eslint-parser로 변경 되었고
-  그러면서 별도의 babel config 파일이 필요한데
-  현재 예제 상 babel-eslint가 필요한 부분이 클래스 컴포넌트에서
-  화살표 함수로 속성을 사용한 경우라서 그냥 넘어감
+  ```javascript
+  npm i -D @babel/core @babel/preset-env @babel/preset-react
+  ```
+
+- babel with typescript (without ts-loader)
 
   ```javascript
   npm i -D @babel/core @babel/preset-env @babel/preset-react
-  npm i -D @babel/plugin-proposal-class-properties
-  npm i -D babel-loader
-  npm i -D babel-eslint
-  ```
-
-- typescript
-
-  ```javascript
-  npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser
-  npm i -D ts-loader
+  npm i -D @babel/preset-typescript
   ```
 
 - types
@@ -124,4 +125,5 @@
   ```javascript
     npm i -D @types/react @types/react-dom
     npm i -D @types/react-router @types/react-router-dom
+    npm i -D @types/webpack-dev-server
   ```
