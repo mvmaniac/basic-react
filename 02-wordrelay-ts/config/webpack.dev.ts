@@ -27,7 +27,7 @@ const extendDevConfig: Configuration = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|js)x?$/,
         use: [
           {
             loader: 'babel-loader',
