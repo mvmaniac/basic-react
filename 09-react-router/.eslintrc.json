@@ -2,7 +2,7 @@
   "env": {
     "browser": true,
     "node": true,
-    "es2021": true
+    "es2022": true
   },
   "extends": ["airbnb", "airbnb/hooks", "prettier"],
   "globals": {
@@ -14,7 +14,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2021,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "babelOptions": {
       "configFile": "./babel.config.js"

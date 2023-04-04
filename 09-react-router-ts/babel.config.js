@@ -4,7 +4,7 @@ const presets = [
     {
       targets: 'defaults',
       useBuiltIns: 'usage',
-      corejs: {version: '3.13', proposals: true}
+      corejs: {version: '3.29', proposals: true}
     }
   ],
   '@babel/preset-typescript',
