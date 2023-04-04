@@ -1,7 +1,12 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 // import RockPaperScissorsClass from './src/RockPaperScissorsClass';
 import RockPaperScissorsHooks from './src/RockPaperScissorsHooks';
 
-render(<RockPaperScissorsHooks />, document.querySelector('#root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <RockPaperScissorsHooks />
+  </React.StrictMode>
+);

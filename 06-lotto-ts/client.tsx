@@ -1,7 +1,15 @@
 import * as React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 // import LottoClass from './src/LottoClass';
 import LottoHooks from './src/LottoHooks';
 
-render(<LottoHooks />, document.querySelector('#root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLDivElement
+);
+
+root.render(
+  <React.StrictMode>
+    <LottoHooks />
+  </React.StrictMode>
+);

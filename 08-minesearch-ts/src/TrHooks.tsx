@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useContext, memo} from 'react';
+import { useContext, memo } from 'react';
 import TdHooks from './TdHooks';
 import MineSearchContext from './MineSearchContext';
 
@@ -7,10 +7,10 @@ interface Props {
   rowIndex: number;
 }
 
-const TrHooks: React.FC<Props> = memo(({rowIndex}) => {
+const TrHooks: React.FC<Props> = memo(({ rowIndex }) => {
   console.log('tr hooks rendered...');
 
-  const {tableData} = useContext(MineSearchContext);
+  const { tableData } = useContext(MineSearchContext);
 
   return (
     <tr>

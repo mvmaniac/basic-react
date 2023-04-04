@@ -1,6 +1,6 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 
-const BallHooks = memo(({number}) => {
+const BallHooks = memo(({ number }) => {
   let background;
 
   if (number <= 10) {
@@ -16,7 +16,7 @@ const BallHooks = memo(({number}) => {
   }
 
   return (
-    <div className="ball" style={{background}}>
+    <div className="ball" style={{ background }}>
       {number}
     </div>
   );

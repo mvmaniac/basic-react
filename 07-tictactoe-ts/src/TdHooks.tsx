@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {useCallback, useEffect, useRef, memo} from 'react';
-import {CLICK_CELL, ReducerActions} from './types/types';
+import { useCallback, useEffect, useRef, memo } from 'react';
+import { CLICK_CELL, ReducerActions } from './types/types';
 
 interface Props {
   rowIndex: number;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const TdHooks: React.FC<Props> = memo(
-  ({rowIndex, cellIndex, cellData, dispatch}) => {
+  ({ rowIndex, cellIndex, cellData, dispatch }) => {
     console.log('td hooks rendered...');
 
     const ref = useRef<any>([]);
@@ -33,7 +33,7 @@ const TdHooks: React.FC<Props> = memo(
       }
 
       // 비동기 임
-      dispatch({type: CLICK_CELL, row: rowIndex, cell: cellIndex});
+      dispatch({ type: CLICK_CELL, row: rowIndex, cell: cellIndex });
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cellData]);
 

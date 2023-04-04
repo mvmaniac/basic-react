@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useReducer} from 'react';
+import { useEffect, useReducer } from 'react';
 import TableHooks from './TableHooks';
 import {
   SET_WINNER,
@@ -74,11 +74,11 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
   }
 };
 
-const TicTacToeHooks = (): JSX.Element => {
+function TicTacToeHooks(): JSX.Element {
   const [state, dispatch] = useReducer<
     React.Reducer<ReducerState, ReducerActions>
   >(reducer, initialState);
-  const {winner, turn, tableData, recentCell} = state;
+  const { winner, turn, tableData, recentCell } = state;
 
   useEffect(() => {
     const [row, cell] = recentCell;
@@ -122,8 +122,8 @@ const TicTacToeHooks = (): JSX.Element => {
     }
 
     if (win) {
-      dispatch({type: SET_WINNER, winner: turn});
-      dispatch({type: RESET_GAME});
+      dispatch({ type: SET_WINNER, winner: turn });
+      dispatch({ type: RESET_GAME });
     } else {
       // true 이면 무승부 임
       let all = true;
@@ -138,9 +138,9 @@ const TicTacToeHooks = (): JSX.Element => {
       });
 
       if (all) {
-        dispatch({type: RESET_GAME});
+        dispatch({ type: RESET_GAME });
       } else {
-        dispatch({type: CHANGE_TURN});
+        dispatch({ type: CHANGE_TURN });
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -157,6 +157,6 @@ const TicTacToeHooks = (): JSX.Element => {
       )}
     </>
   );
-};
+}
 
 export default TicTacToeHooks;

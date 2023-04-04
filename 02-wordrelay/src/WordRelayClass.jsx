@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class WordRelayClass extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class WordRelayClass extends Component {
   }
 
   onSubmitForm = (event) => {
-    const {word, value} = this.state;
+    const { word, value } = this.state;
 
     event.preventDefault();
 
@@ -33,7 +33,7 @@ class WordRelayClass extends Component {
   };
 
   onChangeInput = (event) => {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   };
 
   onInputRef = (el) => {
@@ -41,7 +41,7 @@ class WordRelayClass extends Component {
   };
 
   render() {
-    const {word, value, result} = this.state;
+    const { word, value, result } = this.state;
 
     return (
       <>

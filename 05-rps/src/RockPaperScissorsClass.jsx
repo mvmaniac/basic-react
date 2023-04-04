@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 // 클래스의 경우
 //  -> constructor -> render -> ref -> componentDidMount
@@ -51,7 +51,7 @@ class RockPaperScissorsClass extends Component {
   }
 
   onClickBtn = (choice) => () => {
-    const {imgCoord} = this.state;
+    const { imgCoord } = this.state;
 
     clearInterval(this.interval);
 
@@ -81,7 +81,7 @@ class RockPaperScissorsClass extends Component {
   };
 
   changeHand = () => {
-    const {imgCoord} = this.state;
+    const { imgCoord } = this.state;
 
     if (imgCoord === RPS_COORDS.ROCK) {
       this.setState({
@@ -99,7 +99,7 @@ class RockPaperScissorsClass extends Component {
   };
 
   render() {
-    const {result, score, imgCoord} = this.state;
+    const { result, score, imgCoord } = this.state;
 
     return (
       <>

@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 
 class BallClass extends PureComponent {
   render() {
-    const {number} = this.props;
+    const { number } = this.props;
 
     let background;
 
@@ -19,7 +19,7 @@ class BallClass extends PureComponent {
     }
 
     return (
-      <div className="ball" style={{background}}>
+      <div className="ball" style={{ background }}>
         {number}
       </div>
     );

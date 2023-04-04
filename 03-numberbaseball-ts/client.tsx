@@ -1,7 +1,15 @@
 import * as React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 // import NumberBaseballClass from './src/NumberBaseballClass';
 import NumberBaseballHooks from './src/NumberBaseballHooks';
 
-render(<NumberBaseballHooks />, document.querySelector('#root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLDivElement
+);
+
+root.render(
+  <React.StrictMode>
+    <NumberBaseballHooks />
+  </React.StrictMode>
+);

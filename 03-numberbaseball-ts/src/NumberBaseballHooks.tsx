@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {useState, useRef, useCallback} from 'react';
+import { useState, useRef, useCallback } from 'react';
 import TryHooks from './TryHooks';
-import {TryInfo} from './types/types';
+import { TryInfo } from './types/types';
 
 // 숫자 4개를 겹치지 않고 랜덤하게 뽑는 함수
 const getNumbers = () => {
@@ -16,7 +16,7 @@ const getNumbers = () => {
   return array;
 };
 
-const NumberBaseballHooks = (): JSX.Element => {
+function NumberBaseballHooks(): JSX.Element {
   const [result, setResult] = useState('');
   const [value, setValue] = useState('');
   const [answer, setAnswer] = useState(getNumbers());
@@ -43,7 +43,7 @@ const NumberBaseballHooks = (): JSX.Element => {
 
       if (value === answer.join('')) {
         setResult('홈런');
-        setTries((prevTries) => [...prevTries, {try: value, result: '홈런'}]);
+        setTries((prevTries) => [...prevTries, { try: value, result: '홈런' }]);
 
         reset();
       } else {
@@ -72,7 +72,7 @@ const NumberBaseballHooks = (): JSX.Element => {
 
           setTries((prevTries) => [
             ...prevTries,
-            {try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.`}
+            { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` }
           ]);
         }
       }
@@ -108,6 +108,6 @@ const NumberBaseballHooks = (): JSX.Element => {
       </ul>
     </>
   );
-};
+}
 
 export default NumberBaseballHooks;

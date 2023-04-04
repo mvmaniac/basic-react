@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Component, createRef} from 'react';
+import { Component, createRef } from 'react';
 
 interface State {
   word: string;
@@ -23,7 +23,7 @@ class WordRelayClass extends Component<Record<string, unknown>, State> {
   }
 
   onSubmitForm = (event: React.FormEvent<HTMLFormElement>): void => {
-    const {word, value} = this.state;
+    const { word, value } = this.state;
 
     event.preventDefault();
 
@@ -48,11 +48,11 @@ class WordRelayClass extends Component<Record<string, unknown>, State> {
   };
 
   onChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   };
 
   render(): JSX.Element {
-    const {word, value, result} = this.state;
+    const { word, value, result } = this.state;
 
     return (
       <>

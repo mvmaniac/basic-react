@@ -1,6 +1,6 @@
-import React, {useState, useRef} from 'react';
+import React, { useState, useRef } from 'react';
 
-const ResponseCheckHooks = () => {
+function ResponseCheckHooks() {
   const [state, setSate] = useState('waiting');
   const [message, setMessage] = useState('클릭해서 시작하세요.(hooks)');
   const [result, setResult] = useState([]);
@@ -79,6 +79,6 @@ const ResponseCheckHooks = () => {
       {renderAverage()}
     </>
   );
-};
+}
 
 export default ResponseCheckHooks;

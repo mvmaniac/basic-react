@@ -1,5 +1,7 @@
+const path = require('path');
+
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const {merge, mergeWithRules} = require('webpack-merge');
+const { merge, mergeWithRules } = require('webpack-merge');
 const common = require('./webpack.common');
 
 const mergeConfig = merge(common, {
@@ -9,9 +11,21 @@ const mergeConfig = merge(common, {
   plugins: [new ReactRefreshWebpackPlugin()],
 
   devServer: {
-    publicPath: '/dist',
+    static: {
+      directory: path.join(__dirname, '../')
+    },
     port: 8080,
-    hot: true
+    hot: true,
+    liveReload: false,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false
+      }
+    },
+    devMiddleware: {
+      publicPath: '/dist'
+    }
   }
 });
 

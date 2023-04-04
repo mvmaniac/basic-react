@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useReducer, useMemo} from 'react';
+import { useEffect, useReducer, useMemo } from 'react';
 import MineSearchContext from './MineSearchContext';
 import TableHooks from './TableHooks';
 import FormHooks from './FormHooks';
@@ -66,7 +66,7 @@ const plantMine = (row: number, cell: number, mine: number): Codes[][] => {
     }
   }
 
-  for (let k = 0, {length} = shuffle; k < length; k += 1) {
+  for (let k = 0, { length } = shuffle; k < length; k += 1) {
     const ver = Math.floor(shuffle[k] / cell);
     const hor = shuffle[k] % cell;
     data[ver][hor] = CODE.MINE;
@@ -211,7 +211,7 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
 
       checkAround(action.row, action.cell);
 
-      const {row, cell, mine} = state.data;
+      const { row, cell, mine } = state.data;
       let halted = false;
       let result = '';
 
@@ -243,12 +243,12 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
   }
 };
 
-const MineSearchHooks = (): JSX.Element => {
+function MineSearchHooks(): JSX.Element {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const {tableData, timer, result, halted} = state;
+  const { tableData, timer, result, halted } = state;
 
   const value = useMemo(
-    () => ({tableData, halted, dispatch}),
+    () => ({ tableData, halted, dispatch }),
     [tableData, halted]
   );
 
@@ -257,7 +257,7 @@ const MineSearchHooks = (): JSX.Element => {
 
     if (!halted) {
       interval = window.setInterval(() => {
-        dispatch({type: INCREMENT_TIMER});
+        dispatch({ type: INCREMENT_TIMER });
       }, 1000);
     }
     return () => {
@@ -273,6 +273,6 @@ const MineSearchHooks = (): JSX.Element => {
       <div>{result}</div>
     </MineSearchContext.Provider>
   );
-};
+}
 
 export default MineSearchHooks;

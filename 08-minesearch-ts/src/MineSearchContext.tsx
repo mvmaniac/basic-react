@@ -1,5 +1,5 @@
-import {createContext} from 'react';
-import {Codes, ReducerActions} from './types/types';
+import { createContext } from 'react';
+import { Codes, ReducerActions } from './types/types';
 
 interface Context {
   tableData: Codes[][];

@@ -1,11 +1,11 @@
-import React, {useContext, memo} from 'react';
+import React, { useContext, memo } from 'react';
 import TdHooks from './TdHooks';
 import MineSearchContext from './MineSearchContext';
 
-const TrHooks = memo(({rowIndex}) => {
+const TrHooks = memo(({ rowIndex }) => {
   console.log('tr hooks rendered...');
 
-  const {tableData} = useContext(MineSearchContext);
+  const { tableData } = useContext(MineSearchContext);
 
   return (
     <tr>

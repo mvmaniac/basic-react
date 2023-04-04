@@ -1,6 +1,14 @@
 import * as React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 import Games from './src/Games';
 
-render(<Games />, document.querySelector('#root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLDivElement
+);
+
+root.render(
+  <React.StrictMode>
+    <Games />
+  </React.StrictMode>
+);

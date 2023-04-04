@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer, useMemo} from 'react';
+import React, { useEffect, useReducer, useMemo } from 'react';
 import MineSearchContext from './MineSearchContext';
 import TableHooks from './TableHooks';
 import FormHooks from './FormHooks';
@@ -40,7 +40,7 @@ const plantMine = (row, cell, mine) => {
     }
   }
 
-  for (let k = 0, {length} = shuffle; k < length; k += 1) {
+  for (let k = 0, { length } = shuffle; k < length; k += 1) {
     const ver = Math.floor(shuffle[k] / cell);
     const hor = shuffle[k] % cell;
     data[ver][hor] = CODE.MINE;
@@ -181,7 +181,7 @@ const reducer = (state, action) => {
 
       checkAround(action.row, action.cell);
 
-      const {row, cell, mine} = state.data;
+      const { row, cell, mine } = state.data;
       let halted = false;
       let result = '';
 
@@ -274,18 +274,18 @@ const initialState = {
   openedCount: 0
 };
 
-const MineSearchHooks = () => {
+function MineSearchHooks() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const {tableData, timer, result, halted} = state;
+  const { tableData, timer, result, halted } = state;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const value = useMemo(() => ({tableData, halted, dispatch}), [tableData]);
+  const value = useMemo(() => ({ tableData, halted, dispatch }), [tableData]);
 
   useEffect(() => {
     let interval;
 
     if (!halted) {
       interval = setInterval(() => {
-        dispatch({type: INCREMENT_TIMER});
+        dispatch({ type: INCREMENT_TIMER });
       }, 1000);
     }
     return () => {
@@ -301,6 +301,6 @@ const MineSearchHooks = () => {
       <div>{result}</div>
     </MineSearchContext.Provider>
   );
-};
+}
 
 export default MineSearchHooks;

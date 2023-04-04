@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Component} from 'react';
+import { Component } from 'react';
 
 // 클래스의 경우
 //  -> constructor -> render -> ref -> componentDidMount
@@ -20,7 +20,7 @@ const SCORES = {
   PAPER: -1
 } as const;
 
-type ImgCoords = typeof RPS_COORDS[keyof typeof RPS_COORDS];
+type ImgCoords = (typeof RPS_COORDS)[keyof typeof RPS_COORDS];
 
 const computerChoice = (imgCoord: ImgCoords) =>
   (Object.keys(RPS_COORDS) as ['ROCK', 'SCISSORS', 'PAPER']).find(
@@ -62,7 +62,7 @@ class RockPaperScissorsClass extends Component<Record<string, unknown>, State> {
   }
 
   onClickBtn = (choice: keyof typeof RPS_COORDS) => (): void => {
-    const {imgCoord} = this.state;
+    const { imgCoord } = this.state;
 
     clearInterval(this.interval);
 
@@ -92,7 +92,7 @@ class RockPaperScissorsClass extends Component<Record<string, unknown>, State> {
   };
 
   changeHand = (): void => {
-    const {imgCoord} = this.state;
+    const { imgCoord } = this.state;
 
     if (imgCoord === RPS_COORDS.ROCK) {
       this.setState({
@@ -110,7 +110,7 @@ class RockPaperScissorsClass extends Component<Record<string, unknown>, State> {
   };
 
   render(): JSX.Element {
-    const {result, score, imgCoord} = this.state;
+    const { result, score, imgCoord } = this.state;
 
     return (
       <>

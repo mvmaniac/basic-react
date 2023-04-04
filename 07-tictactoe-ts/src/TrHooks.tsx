@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {useEffect, useRef, memo} from 'react';
+import { useEffect, useRef, memo } from 'react';
 import TdHooks from './TdHooks';
-import {ReducerActions} from './types/types';
+import { ReducerActions } from './types/types';
 
 interface Props {
   rowIndex: number;
@@ -9,7 +9,7 @@ interface Props {
   dispatch: React.Dispatch<ReducerActions>;
 }
 
-const TrHooks: React.FC<Props> = memo(({rowIndex, rowData, dispatch}) => {
+const TrHooks: React.FC<Props> = memo(({ rowIndex, rowData, dispatch }) => {
   console.log('tr hooks rendered...');
 
   const ref = useRef<any>([]);

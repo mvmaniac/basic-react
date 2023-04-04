@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import {Configuration} from 'webpack';
+import { Configuration } from 'webpack';
 
 const commonConfig: Configuration = {
   name: 'react-router-ts-config',
@@ -31,12 +31,7 @@ const commonConfig: Configuration = {
 
   plugins: [
     new CleanWebpackPlugin.CleanWebpackPlugin(),
-    new ForkTsCheckerWebpackPlugin({
-      eslint: {
-        enabled: true,
-        files: ['client.tsx', './src/**/*']
-      }
-    })
+    new ForkTsCheckerWebpackPlugin()
   ],
 
   // 출력

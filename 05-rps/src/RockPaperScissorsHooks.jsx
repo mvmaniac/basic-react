@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const RPS_COORDS = {
   ROCK: '0',
@@ -15,7 +15,7 @@ const SCORES = {
 const computerChoice = (imgCoord) =>
   Object.entries(RPS_COORDS).find((v) => v[1] === imgCoord)[0];
 
-const RockPaperScissorsHooks = () => {
+function RockPaperScissorsHooks() {
   const [imgCoord, setImgCoord] = useState(RPS_COORDS.ROCK);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState([]);
@@ -106,6 +106,6 @@ const RockPaperScissorsHooks = () => {
       </div>
     </>
   );
-};
+}
 
 export default RockPaperScissorsHooks;

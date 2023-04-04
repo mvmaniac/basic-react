@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useCallback, useContext, useMemo, memo} from 'react';
+import { useCallback, useContext, useMemo, memo } from 'react';
 import MineSearchContext from './MineSearchContext';
 import {
   CODE,
@@ -75,10 +75,10 @@ interface Props {
   cellIndex: number;
 }
 
-const TdHooks: React.FC<Props> = memo(({rowIndex, cellIndex}) => {
+const TdHooks: React.FC<Props> = memo(({ rowIndex, cellIndex }) => {
   console.log('td hooks rendered...');
 
-  const {tableData, halted, dispatch} = useContext(MineSearchContext);
+  const { tableData, halted, dispatch } = useContext(MineSearchContext);
   const code = tableData[rowIndex][cellIndex];
 
   const onclickTd = useCallback(() => {

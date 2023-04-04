@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, memo} from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 import TdHooks from './TdHooks';
 
-const TrHooks = memo(({rowIndex, rowData, dispatch}) => {
+const TrHooks = memo(({ rowIndex, rowData, dispatch }) => {
   console.log('tr hooks rendered...');
 
   const ref = useRef([]);

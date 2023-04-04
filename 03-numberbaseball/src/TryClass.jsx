@@ -1,13 +1,11 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 
 class TryClass extends PureComponent {
   // Component 클래스 extends 해서 해당 함수를 구현해도 됨
   // shouldComponentUpdate(nextProps, nextState, nextContext) {}
 
-  ignore = () => {};
-
   render() {
-    const {tryInfo} = this.props;
+    const { tryInfo } = this.props;
 
     return (
       <li>

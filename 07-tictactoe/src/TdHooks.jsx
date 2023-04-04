@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect, useRef, memo} from 'react';
-import {CLICK_CELL} from './Const';
+import React, { useCallback, useEffect, useRef, memo } from 'react';
+import { CLICK_CELL } from './Const';
 
-const TdHooks = memo(({rowIndex, cellIndex, cellData, dispatch}) => {
+const TdHooks = memo(({ rowIndex, cellIndex, cellData, dispatch }) => {
   console.log('td hooks rendered...');
 
   const ref = useRef([]);
@@ -24,7 +24,7 @@ const TdHooks = memo(({rowIndex, cellIndex, cellData, dispatch}) => {
     }
 
     // 비동기 임
-    dispatch({type: CLICK_CELL, row: rowIndex, cell: cellIndex});
+    dispatch({ type: CLICK_CELL, row: rowIndex, cell: cellIndex });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cellData]);
 

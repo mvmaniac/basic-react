@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {useState, useCallback, useContext, memo} from 'react';
+import { useState, useCallback, useContext, memo } from 'react';
 import MineSearchContext from './MineSearchContext';
-import {startGame} from './types/types';
+import { startGame } from './types/types';
 
 const FormHooks = memo(() => {
   const [row, setRow] = useState(10);
   const [cell, setCell] = useState(10);
   const [mine, setMine] = useState(20);
-  const {dispatch} = useContext(MineSearchContext);
+  const { dispatch } = useContext(MineSearchContext);
 
   const onChangeRow = useCallback(
     (evt: React.ChangeEvent<HTMLInputElement>) => {

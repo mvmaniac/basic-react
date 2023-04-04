@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Component} from 'react';
+import { Component } from 'react';
 import BallClass from './BallClass';
 
 const getWinNumbers = () => {
@@ -91,9 +91,9 @@ class LottoClass extends Component<Record<string, unknown>, State> {
   };
 
   runTimeouts = (): void => {
-    const {winNumbers} = this.state;
+    const { winNumbers } = this.state;
 
-    for (let i = 0, {length} = winNumbers; i < length - 1; i += 1) {
+    for (let i = 0, { length } = winNumbers; i < length - 1; i += 1) {
       this.timeouts[i] = window.setTimeout(() => {
         this.setState((prevState) => ({
           winBalls: [...prevState.winBalls, winNumbers[i]]
@@ -110,7 +110,7 @@ class LottoClass extends Component<Record<string, unknown>, State> {
   };
 
   render(): JSX.Element {
-    const {winBalls, bonusBall, redo} = this.state;
+    const { winBalls, bonusBall, redo } = this.state;
 
     return (
       <>

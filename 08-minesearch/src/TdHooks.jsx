@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useMemo, memo} from 'react';
+import React, { useCallback, useContext, useMemo, memo } from 'react';
 import MineSearchContext from './MineSearchContext';
 import {
   CODE,
@@ -68,10 +68,10 @@ const getTdText = (code) => {
   }
 };
 
-const TdHooks = memo(({rowIndex, cellIndex}) => {
+const TdHooks = memo(({ rowIndex, cellIndex }) => {
   console.log('td hooks rendered...');
 
-  const {tableData, halted, dispatch} = useContext(MineSearchContext);
+  const { tableData, halted, dispatch } = useContext(MineSearchContext);
   const code = tableData[rowIndex][cellIndex];
 
   const onclickTd = useCallback(() => {
@@ -89,11 +89,11 @@ const TdHooks = memo(({rowIndex, cellIndex}) => {
         break;
       }
       case CODE.NORMAL: {
-        dispatch({type: OPEN_CELL, row: rowIndex, cell: cellIndex});
+        dispatch({ type: OPEN_CELL, row: rowIndex, cell: cellIndex });
         break;
       }
       case CODE.MINE: {
-        dispatch({type: CLICK_MINE, row: rowIndex, cell: cellIndex});
+        dispatch({ type: CLICK_MINE, row: rowIndex, cell: cellIndex });
         break;
       }
       default: {
@@ -115,17 +115,17 @@ const TdHooks = memo(({rowIndex, cellIndex}) => {
       switch (tableData[rowIndex][cellIndex]) {
         case CODE.NORMAL:
         case CODE.MINE: {
-          dispatch({type: FLAG_CELL, row: rowIndex, cell: cellIndex});
+          dispatch({ type: FLAG_CELL, row: rowIndex, cell: cellIndex });
           break;
         }
         case CODE.FLAG_MINE:
         case CODE.FLAG: {
-          dispatch({type: QUESTION_CELL, row: rowIndex, cell: cellIndex});
+          dispatch({ type: QUESTION_CELL, row: rowIndex, cell: cellIndex });
           break;
         }
         case CODE.QUESTION_MINE:
         case CODE.QUESTION: {
-          dispatch({type: NORMALIZE_CELL, row: rowIndex, cell: cellIndex});
+          dispatch({ type: NORMALIZE_CELL, row: rowIndex, cell: cellIndex });
           break;
         }
         default: {

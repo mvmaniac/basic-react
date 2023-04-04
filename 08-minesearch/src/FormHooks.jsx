@@ -1,12 +1,12 @@
-import React, {useState, useCallback, useContext, memo} from 'react';
+import React, { useState, useCallback, useContext, memo } from 'react';
 import MineSearchContext from './MineSearchContext';
-import {START_GAME} from './Const';
+import { START_GAME } from './Const';
 
 const FormHooks = memo(() => {
   const [row, setRow] = useState(10);
   const [cell, setCell] = useState(10);
   const [mine, setMine] = useState(20);
-  const {dispatch} = useContext(MineSearchContext);
+  const { dispatch } = useContext(MineSearchContext);
 
   const onChangeRow = useCallback((evt) => {
     setRow(evt.target.value);
@@ -21,7 +21,7 @@ const FormHooks = memo(() => {
   }, []);
 
   const onClickBtn = useCallback(() => {
-    dispatch({type: START_GAME, row, cell, mine});
+    dispatch({ type: START_GAME, row, cell, mine });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [row, cell, mine]);
 

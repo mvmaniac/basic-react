@@ -9,7 +9,7 @@ export const CODE = {
   OPENED: 0
 } as const;
 
-export type Codes = typeof CODE[keyof typeof CODE];
+export type Codes = (typeof CODE)[keyof typeof CODE];
 
 export const START_GAME = 'START_GAME' as const;
 export const CLICK_MINE = 'CLICK_MINE' as const;

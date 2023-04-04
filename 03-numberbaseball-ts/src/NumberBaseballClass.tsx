@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Component, createRef} from 'react';
+import { Component, createRef } from 'react';
 import TryClass from './TryClass';
-import {TryInfo} from './types/types';
+import { TryInfo } from './types/types';
 
 interface State {
   result: string;
@@ -40,14 +40,14 @@ class NumberBaseballClass extends Component<Record<string, unknown>, State> {
   }
 
   onSubmitForm = (event: React.FormEvent<HTMLFormElement>): void => {
-    const {value, answer, tries} = this.state;
+    const { value, answer, tries } = this.state;
 
     event.preventDefault();
 
     if (value === answer.join('')) {
       this.setState((prevState) => ({
         result: '홈런!',
-        tries: [...prevState.tries, {try: value, result: '홈런'}]
+        tries: [...prevState.tries, { try: value, result: '홈런' }]
       }));
 
       this.reset();
@@ -77,7 +77,7 @@ class NumberBaseballClass extends Component<Record<string, unknown>, State> {
           value: '',
           tries: [
             ...prevState.tries,
-            {try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.`}
+            { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` }
           ]
         }));
       }
@@ -101,7 +101,7 @@ class NumberBaseballClass extends Component<Record<string, unknown>, State> {
   };
 
   render(): JSX.Element {
-    const {result, value, tries} = this.state;
+    const { result, value, tries } = this.state;
 
     return (
       <>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState, useRef, useEffect} from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const RPS_COORDS = {
   ROCK: '0',
@@ -13,14 +13,14 @@ const SCORES = {
   PAPER: -1
 } as const;
 
-type ImgCoords = typeof RPS_COORDS[keyof typeof RPS_COORDS];
+type ImgCoords = (typeof RPS_COORDS)[keyof typeof RPS_COORDS];
 
 const computerChoice = (imgCoord: ImgCoords) =>
   (Object.keys(RPS_COORDS) as ['ROCK', 'SCISSORS', 'PAPER']).find(
     (k) => RPS_COORDS[k] === imgCoord
   ) ?? 'ROCK';
 
-const RockPaperScissorsHooks = (): JSX.Element => {
+function RockPaperScissorsHooks(): JSX.Element {
   const [imgCoord, setImgCoord] = useState<ImgCoords>(RPS_COORDS.ROCK);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState('');
@@ -111,6 +111,6 @@ const RockPaperScissorsHooks = (): JSX.Element => {
       </div>
     </>
   );
-};
+}
 
 export default RockPaperScissorsHooks;

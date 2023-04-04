@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {useState, useRef, useCallback} from 'react';
+import { useState, useRef, useCallback } from 'react';
 
-const WordRelayHooks = (): JSX.Element => {
+function WordRelayHooks(): JSX.Element {
   const [word, setWord] = useState('백수');
   const [value, setValue] = useState('');
   const [result, setResult] = useState('');
@@ -54,6 +54,6 @@ const WordRelayHooks = (): JSX.Element => {
       <div>{result}</div>
     </>
   );
-};
+}
 
 export default WordRelayHooks;

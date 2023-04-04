@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
-import NumberBaseballClass from '../../03-numberbaseball/src/NumberBaseballClass';
-import RockPaperScissorsClass from '../../05-rps/src/RockPaperScissorsClass';
-import LottoClass from '../../06-lotto/src/LottoClass';
+import React, { PureComponent } from 'react';
+import NumberBaseballClass from 'number-baseball/src/NumberBaseballClass';
+import RockPaperScissorsClass from 'rps/src/RockPaperScissorsClass';
+import LottoClass from 'lotto/src/LottoClass';
 
-class GameMatcher extends Component {
-  ignore = () => {};
-
+class GameMatcher extends PureComponent {
   render() {
-    const {match, location} = this.props;
+    const { match, location } = this.props;
     console.log(this.props);
 
     const urlSearchParams = new URLSearchParams(location.search.slice(1));

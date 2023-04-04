@@ -1,4 +1,10 @@
-import React, {useState, useRef, useEffect, useMemo, useCallback} from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useMemo,
+  useCallback
+} from 'react';
 import BallHooks from './BallHooks';
 
 const getWinNumbers = () => {
@@ -22,7 +28,7 @@ const getWinNumbers = () => {
   return [...winNumbers, bonusNumber];
 };
 
-const LottoHooks = () => {
+function LottoHooks() {
   // hooks의 경우 함수 컴포넌트 전체가 실행되기 때문에
   // getWinNumbers() 함수가 계속 실행됨
   // useMemo 는 함수 결과 값을 저장한다, 두번쨰 인자로 설정한 변수의 상태가 바뀌기 전까지...
@@ -36,7 +42,7 @@ const LottoHooks = () => {
   const timeouts = useRef([]);
 
   const runTimeouts = () => {
-    for (let i = 0, {length} = winNumbers; i < length - 1; i += 1) {
+    for (let i = 0, { length } = winNumbers; i < length - 1; i += 1) {
       timeouts.current[i] = setTimeout(() => {
         setWinBalls((prevWinBalls) => [...prevWinBalls, winNumbers[i]]);
       }, (i + 1) * 1000);
@@ -97,6 +103,6 @@ const LottoHooks = () => {
       )}
     </>
   );
-};
+}
 
 export default LottoHooks;

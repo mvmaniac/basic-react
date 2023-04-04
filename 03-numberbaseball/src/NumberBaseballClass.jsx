@@ -1,4 +1,4 @@
-import React, {Component, createRef} from 'react';
+import React, { Component, createRef } from 'react';
 import TryClass from './TryClass';
 
 // 숫자 4개를 겹치지 않고 랜덤하게 뽑는 함수
@@ -29,14 +29,14 @@ class NumberBaseballClass extends Component {
   }
 
   onSubmitForm = (event) => {
-    const {value, answer, tries} = this.state;
+    const { value, answer, tries } = this.state;
 
     event.preventDefault();
 
     if (value === answer.join('')) {
       this.setState((prevState) => ({
         result: '홈런!',
-        tries: [...prevState.tries, {try: value, result: '홈런'}]
+        tries: [...prevState.tries, { try: value, result: '홈런' }]
       }));
 
       this.reset();
@@ -66,7 +66,7 @@ class NumberBaseballClass extends Component {
           value: '',
           tries: [
             ...prevState.tries,
-            {try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.`}
+            { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` }
           ]
         }));
       }
@@ -80,6 +80,7 @@ class NumberBaseballClass extends Component {
   };
 
   reset = () => {
+    // eslint-disable-next-line no-alert
     alert('게임을 다시 시작합니다!');
 
     this.setState({
@@ -90,7 +91,7 @@ class NumberBaseballClass extends Component {
   };
 
   render() {
-    const {result, value, tries} = this.state;
+    const { result, value, tries } = this.state;
 
     return (
       <>

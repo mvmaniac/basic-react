@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class ResponseCheckClass extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class ResponseCheckClass extends Component {
   }
 
   onClickScreen = () => {
-    const {state} = this.state;
+    const { state } = this.state;
 
     if (state === 'waiting') {
       this.setStateAndMessage('ready', '초록색이 되면 클릭하세요.');
@@ -64,7 +64,7 @@ class ResponseCheckClass extends Component {
   };
 
   renderAverage = () => {
-    const {result} = this.state;
+    const { result } = this.state;
 
     return result.length === 0 ? null : (
       <>
@@ -81,7 +81,7 @@ class ResponseCheckClass extends Component {
   };
 
   render() {
-    const {state, message} = this.state;
+    const { state, message } = this.state;
 
     return (
       <>

@@ -1,9 +1,9 @@
-import React, {useContext, memo} from 'react';
+import React, { useContext, memo } from 'react';
 import TrHooks from './TrHooks';
 import MineSearchContext from './MineSearchContext';
 
 const TableHooks = memo(() => {
-  const {tableData} = useContext(MineSearchContext);
+  const { tableData } = useContext(MineSearchContext);
 
   return (
     <table>

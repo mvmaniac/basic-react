@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Component} from 'react';
+import { Component } from 'react';
 
 interface State {
   state: 'waiting' | 'now' | 'ready';
@@ -25,7 +25,7 @@ class ResponseCheckClass extends Component<Record<string, unknown>, State> {
   }
 
   onClickScreen = (): void => {
-    const {state} = this.state;
+    const { state } = this.state;
 
     if (state === 'waiting') {
       this.setStateAndMessage('ready', '초록색이 되면 클릭하세요.');
@@ -77,7 +77,7 @@ class ResponseCheckClass extends Component<Record<string, unknown>, State> {
   };
 
   renderAverage = (): JSX.Element | null => {
-    const {result} = this.state;
+    const { result } = this.state;
 
     return result.length === 0 ? null : (
       <>
@@ -94,7 +94,7 @@ class ResponseCheckClass extends Component<Record<string, unknown>, State> {
   };
 
   render(): JSX.Element {
-    const {state, message} = this.state;
+    const { state, message } = this.state;
 
     return (
       <>

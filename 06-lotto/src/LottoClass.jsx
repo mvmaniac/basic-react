@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import BallClass from './BallClass';
 
 const getWinNumbers = () => {
@@ -80,9 +80,9 @@ class LottoClass extends Component {
   };
 
   runTimeouts = () => {
-    const {winNumbers} = this.state;
+    const { winNumbers } = this.state;
 
-    for (let i = 0, {length} = winNumbers; i < length - 1; i += 1) {
+    for (let i = 0, { length } = winNumbers; i < length - 1; i += 1) {
       this.timeouts[i] = setTimeout(() => {
         this.setState((prevState) => ({
           winBalls: [...prevState.winBalls, winNumbers[i]]
@@ -99,7 +99,7 @@ class LottoClass extends Component {
   };
 
   render() {
-    const {winBalls, bonusBall, redo} = this.state;
+    const { winBalls, bonusBall, redo } = this.state;
 
     return (
       <>

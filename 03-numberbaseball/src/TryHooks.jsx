@@ -1,6 +1,6 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 
-const TryHooks = memo(({tryInfo}) => (
+const TryHooks = memo(({ tryInfo }) => (
   <li>
     <div>{tryInfo.try}</div>
     <div>{tryInfo.result}</div>

@@ -1,7 +1,9 @@
+import * as path from 'path';
+
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import {Configuration as WebpackConfiguration} from 'webpack';
-import {Configuration as WebpackDevServerConfiguration} from 'webpack-dev-server';
-import {merge, mergeWithRules, CustomizeRule} from 'webpack-merge';
+import { Configuration as WebpackConfiguration } from 'webpack';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import { merge, mergeWithRules, CustomizeRule } from 'webpack-merge';
 
 import common from './webpack.common';
 
@@ -16,9 +18,21 @@ const baseDevConfig: Configuration = {
   plugins: [new ReactRefreshWebpackPlugin()],
 
   devServer: {
-    publicPath: '/dist',
+    static: {
+      directory: path.join(__dirname, '../')
+    },
     port: 8080,
-    hot: true
+    hot: true,
+    liveReload: false,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false
+      }
+    },
+    devMiddleware: {
+      publicPath: '/dist'
+    }
   }
 };
 
@@ -28,6 +42,7 @@ const extendDevConfig: Configuration = {
     rules: [
       {
         test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
