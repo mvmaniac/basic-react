@@ -6,7 +6,7 @@ export const CODE = {
   QUESTION_MINE: -4,
   FLAG_MINE: -5,
   CLICKED_MINE: -6,
-  OPENED: 0
+  OPENED: 0,
 };
 
 export const START_GAME = 'START_GAME';

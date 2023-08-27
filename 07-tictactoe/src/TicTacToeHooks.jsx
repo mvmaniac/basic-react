@@ -10,7 +10,7 @@ const reducer = (state, action) => {
       // 새로운 state 를 만들어서 리턴해주어야 함
       return {
         ...state,
-        winner: action.winner
+        winner: action.winner,
       };
     }
     case CLICK_CELL: {
@@ -22,13 +22,13 @@ const reducer = (state, action) => {
       return {
         ...state,
         tableData,
-        recentCell: [action.row, action.cell]
+        recentCell: [action.row, action.cell],
       };
     }
     case CHANGE_TURN: {
       return {
         ...state,
-        turn: state.turn === 'O' ? 'X' : 'O'
+        turn: state.turn === 'O' ? 'X' : 'O',
       };
     }
     case RESET_GAME: {
@@ -38,9 +38,9 @@ const reducer = (state, action) => {
         tableData: [
           ['', '', ''],
           ['', '', ''],
-          ['', '', '']
+          ['', '', ''],
         ],
-        recentCell: [-1, -1]
+        recentCell: [-1, -1],
       };
     }
     default: {
@@ -55,9 +55,9 @@ const initialState = {
   tableData: [
     ['', '', ''],
     ['', '', ''],
-    ['', '', '']
+    ['', '', ''],
   ],
-  recentCell: [-1, -1]
+  recentCell: [-1, -1],
 };
 
 function TicTacToeHooks() {

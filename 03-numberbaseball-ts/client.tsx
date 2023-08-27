@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom/client';
 import NumberBaseballHooks from './src/NumberBaseballHooks';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLDivElement
+  document.getElementById('root') as HTMLDivElement,
 );
 
 root.render(
   <React.StrictMode>
     <NumberBaseballHooks />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -11,7 +11,7 @@ export interface SetWinnerAction {
 // 변하는 값, 즉 변수가 있는 것만 액션 크리에이터를 만듬
 export const setWinner = (winner: 'O' | 'X'): SetWinnerAction => ({
   type: SET_WINNER,
-  winner
+  winner,
 });
 
 export interface ClickCellAction {
@@ -24,7 +24,7 @@ export interface ClickCellAction {
 export const clickCell = (row: number, cell: number): ClickCellAction => ({
   type: CLICK_CELL,
   row,
-  cell
+  cell,
 });
 
 export interface ChangeTurnAction {

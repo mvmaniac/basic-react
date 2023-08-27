@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom/client';
 import LottoHooks from './src/LottoHooks';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLDivElement
+  document.getElementById('root') as HTMLDivElement,
 );
 
 root.render(
   <React.StrictMode>
     <LottoHooks />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

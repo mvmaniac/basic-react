@@ -19,12 +19,15 @@ function ResponseCheckHooks(): JSX.Element {
     if (state === 'waiting') {
       setStateAndMessage('ready', '초록색이 되면 클릭하세요.');
 
-      timeout.current = window.setTimeout(() => {
-        setStateAndMessage('now', '지금 클릭!!!');
+      timeout.current = window.setTimeout(
+        () => {
+          setStateAndMessage('now', '지금 클릭!!!');
 
-        // 시작 시간 체크
-        startTime.current = new Date().getTime();
-      }, Math.floor(Math.random() * 1000) + 2000); // 2초 ~ 3초 랜덤
+          // 시작 시간 체크
+          startTime.current = new Date().getTime();
+        },
+        Math.floor(Math.random() * 1000) + 2000,
+      ); // 2초 ~ 3초 랜덤
     } else if (state === 'ready') {
       // 타임아웃 클리어
       if (timeout.current) {
@@ -34,7 +37,7 @@ function ResponseCheckHooks(): JSX.Element {
       // 성급하게 클릭
       setStateAndMessage(
         'waiting',
-        '너무 성급 하시군요! 초록색이 된 후에 클릭하세요.'
+        '너무 성급 하시군요! 초록색이 된 후에 클릭하세요.',
       );
     } else if (state === 'now') {
       // 끝 시간 체크
@@ -45,7 +48,7 @@ function ResponseCheckHooks(): JSX.Element {
 
       setResult((prevResult) => [
         ...prevResult,
-        endTime.current - startTime.current
+        endTime.current - startTime.current,
       ]);
     }
   }, [state]);

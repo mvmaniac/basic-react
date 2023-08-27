@@ -9,7 +9,7 @@ interface Props {
 
 const TableHooks: React.FC<Props> = function tableHooks({
   tableData,
-  dispatch
+  dispatch,
 }) {
   return (
     <table>

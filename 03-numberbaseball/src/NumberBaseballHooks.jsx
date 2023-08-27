@@ -64,7 +64,7 @@ function NumberBaseballHooks() {
 
         setTries((prevTries) => [
           ...prevTries,
-          { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` }
+          { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` },
         ]);
       }
     }

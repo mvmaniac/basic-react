@@ -12,7 +12,7 @@ const mergeConfig = merge(common, {
 
   devServer: {
     static: {
-      directory: path.join(__dirname, '../')
+      directory: path.join(__dirname, '../'),
     },
     port: 8080,
     hot: true,
@@ -20,13 +20,13 @@ const mergeConfig = merge(common, {
     client: {
       overlay: {
         errors: true,
-        warnings: false
-      }
+        warnings: false,
+      },
     },
     devMiddleware: {
-      publicPath: '/dist'
-    }
-  }
+      publicPath: '/dist',
+    },
+  },
 });
 
 const extendDevConfig = {
@@ -38,13 +38,13 @@ const extendDevConfig = {
           {
             loader: 'babel-loader',
             options: {
-              plugins: ['react-refresh/babel']
-            }
-          }
-        ]
-      }
-    ]
-  }
+              plugins: ['react-refresh/babel'],
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
 
 module.exports = mergeWithRules({
@@ -53,8 +53,8 @@ module.exports = mergeWithRules({
       test: 'match',
       use: {
         loader: 'match',
-        options: 'replace'
-      }
-    }
-  }
+        options: 'replace',
+      },
+    },
+  },
 })(mergeConfig, extendDevConfig);

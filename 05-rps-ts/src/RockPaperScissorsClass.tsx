@@ -11,20 +11,20 @@ import { Component } from 'react';
 const RPS_COORDS = {
   ROCK: '0',
   SCISSORS: '-142px',
-  PAPER: '-284px'
+  PAPER: '-284px',
 } as const;
 
 const SCORES = {
   ROCK: 0,
   SCISSORS: 1,
-  PAPER: -1
+  PAPER: -1,
 } as const;
 
 type ImgCoords = (typeof RPS_COORDS)[keyof typeof RPS_COORDS];
 
 const computerChoice = (imgCoord: ImgCoords) =>
   (Object.keys(RPS_COORDS) as ['ROCK', 'SCISSORS', 'PAPER']).find(
-    (k) => RPS_COORDS[k] === imgCoord
+    (k) => RPS_COORDS[k] === imgCoord,
   ) ?? 'ROCK';
 
 interface State {
@@ -42,7 +42,7 @@ class RockPaperScissorsClass extends Component<Record<string, unknown>, State> {
     this.state = {
       imgCoord: RPS_COORDS.ROCK,
       score: 0,
-      result: ''
+      result: '',
     };
   }
 
@@ -72,17 +72,17 @@ class RockPaperScissorsClass extends Component<Record<string, unknown>, State> {
 
     if (diff === 0) {
       this.setState({
-        result: '비겼습니다.'
+        result: '비겼습니다.',
       });
     } else if ([-1, 2].includes(diff)) {
       this.setState((prevState) => ({
         result: '이겼습니다!',
-        score: prevState.score + 1
+        score: prevState.score + 1,
       }));
     } else {
       this.setState((prevState) => ({
         result: '졌습니다.',
-        score: prevState.score - 1
+        score: prevState.score - 1,
       }));
     }
 
@@ -96,15 +96,15 @@ class RockPaperScissorsClass extends Component<Record<string, unknown>, State> {
 
     if (imgCoord === RPS_COORDS.ROCK) {
       this.setState({
-        imgCoord: RPS_COORDS.SCISSORS
+        imgCoord: RPS_COORDS.SCISSORS,
       });
     } else if (imgCoord === RPS_COORDS.SCISSORS) {
       this.setState({
-        imgCoord: RPS_COORDS.PAPER
+        imgCoord: RPS_COORDS.PAPER,
       });
     } else if (imgCoord === RPS_COORDS.PAPER) {
       this.setState({
-        imgCoord: RPS_COORDS.ROCK
+        imgCoord: RPS_COORDS.ROCK,
       });
     }
   };
@@ -117,7 +117,7 @@ class RockPaperScissorsClass extends Component<Record<string, unknown>, State> {
         <div
           id="computer"
           style={{
-            background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${imgCoord} 0`
+            background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${imgCoord} 0`,
           }}
         />
         <div>

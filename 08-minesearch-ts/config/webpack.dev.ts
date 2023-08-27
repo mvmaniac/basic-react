@@ -19,7 +19,7 @@ const baseDevConfig: Configuration = {
 
   devServer: {
     static: {
-      directory: path.join(__dirname, '../')
+      directory: path.join(__dirname, '../'),
     },
     port: 8080,
     hot: true,
@@ -27,13 +27,13 @@ const baseDevConfig: Configuration = {
     client: {
       overlay: {
         errors: true,
-        warnings: false
-      }
+        warnings: false,
+      },
     },
     devMiddleware: {
-      publicPath: '/dist'
-    }
-  }
+      publicPath: '/dist',
+    },
+  },
 };
 
 const mergeConfig = merge<Configuration>(common, baseDevConfig);
@@ -47,13 +47,13 @@ const extendDevConfig: Configuration = {
           {
             loader: 'babel-loader',
             options: {
-              plugins: ['react-refresh/babel']
-            }
-          }
-        ]
-      }
-    ]
-  }
+              plugins: ['react-refresh/babel'],
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export default mergeWithRules({
@@ -62,8 +62,8 @@ export default mergeWithRules({
       test: CustomizeRule.Match,
       use: {
         loader: CustomizeRule.Match,
-        options: CustomizeRule.Replace
-      }
-    }
-  }
+        options: CustomizeRule.Replace,
+      },
+    },
+  },
 })(mergeConfig, extendDevConfig);

@@ -18,7 +18,7 @@ class WordRelayClass extends Component<Record<string, unknown>, State> {
     this.state = {
       word: '백수',
       value: '',
-      result: ''
+      result: '',
     };
   }
 
@@ -33,12 +33,12 @@ class WordRelayClass extends Component<Record<string, unknown>, State> {
       this.setState({
         result: '딩동댕',
         value: '',
-        word: value
+        word: value,
       });
     } else {
       this.setState({
         result: '땡!',
-        value: ''
+        value: '',
       });
     }
 

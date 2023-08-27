@@ -4,13 +4,13 @@ const presets = [
     {
       targets: 'defaults',
       useBuiltIns: 'usage',
-      corejs: {version: '3.18', proposals: true}
-    }
+      corejs: { version: '3.18', proposals: true },
+    },
   ],
   '@babel/preset-typescript',
-  '@babel/preset-react'
+  '@babel/preset-react',
 ];
 
 const plugins = [];
 
-export default {presets, plugins};
+export default { presets, plugins };

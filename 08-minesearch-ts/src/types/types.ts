@@ -6,7 +6,7 @@ export const CODE = {
   QUESTION_MINE: -4,
   FLAG_MINE: -5,
   CLICKED_MINE: -6,
-  OPENED: 0
+  OPENED: 0,
 } as const;
 
 export type Codes = (typeof CODE)[keyof typeof CODE];
@@ -29,12 +29,12 @@ interface StartGameAction {
 export const startGame = (
   row: number,
   cell: number,
-  mine: number
+  mine: number,
 ): StartGameAction => ({
   type: START_GAME,
   row,
   cell,
-  mine
+  mine,
 });
 
 interface OpenCellAction {
@@ -46,7 +46,7 @@ interface OpenCellAction {
 export const openCell = (row: number, cell: number): OpenCellAction => ({
   type: OPEN_CELL,
   row,
-  cell
+  cell,
 });
 
 interface ClickMineAction {
@@ -58,7 +58,7 @@ interface ClickMineAction {
 export const clickMine = (row: number, cell: number): ClickMineAction => ({
   type: CLICK_MINE,
   row,
-  cell
+  cell,
 });
 
 interface FlagMineAction {
@@ -70,7 +70,7 @@ interface FlagMineAction {
 export const flagMine = (row: number, cell: number): FlagMineAction => ({
   type: FLAG_CELL,
   row,
-  cell
+  cell,
 });
 
 interface QuestionCellAction {
@@ -81,11 +81,11 @@ interface QuestionCellAction {
 
 export const questionCell = (
   row: number,
-  cell: number
+  cell: number,
 ): QuestionCellAction => ({
   type: QUESTION_CELL,
   row,
-  cell
+  cell,
 });
 
 interface NormalizeCellAction {
@@ -96,11 +96,11 @@ interface NormalizeCellAction {
 
 export const normalizeCell = (
   row: number,
-  cell: number
+  cell: number,
 ): NormalizeCellAction => ({
   type: NORMALIZE_CELL,
   row,
-  cell
+  cell,
 });
 
 interface IncrementTimerAction {
@@ -108,7 +108,7 @@ interface IncrementTimerAction {
 }
 
 export const incrementTimer = (): IncrementTimerAction => ({
-  type: INCREMENT_TIMER
+  type: INCREMENT_TIMER,
 });
 
 export type ReducerActions =

@@ -13,7 +13,7 @@ const getWinNumbers = () => {
 
   while (candidate.length > 0) {
     shuffle.push(
-      candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0]
+      candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0],
     );
   }
 
@@ -40,7 +40,7 @@ class LottoClass extends Component<Record<string, unknown>, State> {
       winNumbers: getWinNumbers(), // 당첨 숫자들
       winBalls: [],
       bonusBall: null, // 보너스 공
-      redo: false
+      redo: false,
     };
   }
 
@@ -55,7 +55,7 @@ class LottoClass extends Component<Record<string, unknown>, State> {
   // 리렌더링 후
   componentDidUpdate(
     prevProps: Record<string, unknown>,
-    prevState: State
+    prevState: State,
   ): void {
     console.log('componentDidUpdate...');
 
@@ -83,7 +83,7 @@ class LottoClass extends Component<Record<string, unknown>, State> {
       winNumbers: getWinNumbers(), // 당첨 숫자들
       winBalls: [],
       bonusBall: null, // 보너스 공
-      redo: false
+      redo: false,
     });
 
     this.timeouts = [];
@@ -94,17 +94,20 @@ class LottoClass extends Component<Record<string, unknown>, State> {
     const { winNumbers } = this.state;
 
     for (let i = 0, { length } = winNumbers; i < length - 1; i += 1) {
-      this.timeouts[i] = window.setTimeout(() => {
-        this.setState((prevState) => ({
-          winBalls: [...prevState.winBalls, winNumbers[i]]
-        }));
-      }, (i + 1) * 1000);
+      this.timeouts[i] = window.setTimeout(
+        () => {
+          this.setState((prevState) => ({
+            winBalls: [...prevState.winBalls, winNumbers[i]],
+          }));
+        },
+        (i + 1) * 1000,
+      );
     }
 
     this.timeouts[6] = window.setTimeout(() => {
       this.setState({
         bonusBall: winNumbers[6],
-        redo: true
+        redo: true,
       });
     }, 7000);
   };

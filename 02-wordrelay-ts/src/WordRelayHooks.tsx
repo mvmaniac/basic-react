@@ -27,7 +27,7 @@ function WordRelayHooks(): JSX.Element {
         inputRef.current.focus();
       }
     },
-    [word, value]
+    [word, value],
   );
 
   // useCallback 제네릭을 사용하지 않고 타입을 정의하는 경우
@@ -35,7 +35,7 @@ function WordRelayHooks(): JSX.Element {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue(event.target.value);
     },
-    []
+    [],
   );
 
   return (

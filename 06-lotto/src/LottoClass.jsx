@@ -12,7 +12,7 @@ const getWinNumbers = () => {
 
   while (candidate.length > 0) {
     shuffle.push(
-      candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0]
+      candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0],
     );
   }
 
@@ -30,7 +30,7 @@ class LottoClass extends Component {
       winNumbers: getWinNumbers(), // 당첨 숫자들
       winBalls: [],
       bonusBall: null, // 보너스 공
-      redo: false
+      redo: false,
     };
 
     this.timeouts = [];
@@ -72,7 +72,7 @@ class LottoClass extends Component {
       winNumbers: getWinNumbers(), // 당첨 숫자들
       winBalls: [],
       bonusBall: null, // 보너스 공
-      redo: false
+      redo: false,
     });
 
     this.timeouts = [];
@@ -83,17 +83,20 @@ class LottoClass extends Component {
     const { winNumbers } = this.state;
 
     for (let i = 0, { length } = winNumbers; i < length - 1; i += 1) {
-      this.timeouts[i] = setTimeout(() => {
-        this.setState((prevState) => ({
-          winBalls: [...prevState.winBalls, winNumbers[i]]
-        }));
-      }, (i + 1) * 1000);
+      this.timeouts[i] = setTimeout(
+        () => {
+          this.setState((prevState) => ({
+            winBalls: [...prevState.winBalls, winNumbers[i]],
+          }));
+        },
+        (i + 1) * 1000,
+      );
     }
 
     this.timeouts[6] = setTimeout(() => {
       this.setState({
         bonusBall: winNumbers[6],
-        redo: true
+        redo: true,
       });
     }, 7000);
   };

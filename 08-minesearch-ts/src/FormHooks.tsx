@@ -13,21 +13,21 @@ const FormHooks = memo(() => {
     (evt: React.ChangeEvent<HTMLInputElement>) => {
       setRow(parseInt(evt.target.value, 10));
     },
-    []
+    [],
   );
 
   const onChangeCell = useCallback(
     (evt: React.ChangeEvent<HTMLInputElement>) => {
       setCell(parseInt(evt.target.value, 10));
     },
-    []
+    [],
   );
 
   const onChangeMine = useCallback(
     (evt: React.ChangeEvent<HTMLInputElement>) => {
       setMine(parseInt(evt.target.value, 10));
     },
-    []
+    [],
   );
 
   const onClickBtn = useCallback(() => {

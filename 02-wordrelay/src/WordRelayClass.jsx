@@ -7,7 +7,7 @@ class WordRelayClass extends Component {
     this.state = {
       word: '백수',
       value: '',
-      result: ''
+      result: '',
     };
   }
 
@@ -20,12 +20,12 @@ class WordRelayClass extends Component {
       this.setState({
         result: '딩동댕',
         value: '',
-        word: value
+        word: value,
       });
     } else {
       this.setState({
         result: '땡!',
-        value: ''
+        value: '',
       });
     }
 

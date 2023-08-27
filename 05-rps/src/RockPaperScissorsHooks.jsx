@@ -3,13 +3,13 @@ import React, { useState, useRef, useEffect } from 'react';
 const RPS_COORDS = {
   ROCK: '0',
   SCISSORS: '-142px',
-  PAPER: '-284px'
+  PAPER: '-284px',
 };
 
 const SCORES = {
   ROCK: 0,
   SCISSORS: 1,
-  PAPER: -1
+  PAPER: -1,
 };
 
 const computerChoice = (imgCoord) =>
@@ -70,7 +70,7 @@ function RockPaperScissorsHooks() {
       <div
         id="computer"
         style={{
-          background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${imgCoord} 0`
+          background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${imgCoord} 0`,
         }}
       />
       <div>

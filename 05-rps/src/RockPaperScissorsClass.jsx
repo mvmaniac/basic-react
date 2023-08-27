@@ -10,13 +10,13 @@ import React, { Component } from 'react';
 const RPS_COORDS = {
   ROCK: '0',
   SCISSORS: '-142px',
-  PAPER: '-284px'
+  PAPER: '-284px',
 };
 
 const SCORES = {
   ROCK: 0,
   SCISSORS: 1,
-  PAPER: -1
+  PAPER: -1,
 };
 
 const computerChoice = (imgCoord) =>
@@ -29,7 +29,7 @@ class RockPaperScissorsClass extends Component {
     this.state = {
       imgCoord: '0',
       score: 0,
-      result: []
+      result: [],
     };
 
     this.interval = null;
@@ -61,17 +61,17 @@ class RockPaperScissorsClass extends Component {
 
     if (diff === 0) {
       this.setState({
-        result: '비겼습니다.'
+        result: '비겼습니다.',
       });
     } else if ([-1, 2].includes(diff)) {
       this.setState((prevState) => ({
         result: '이겼습니다!',
-        score: prevState.score + 1
+        score: prevState.score + 1,
       }));
     } else {
       this.setState((prevState) => ({
         result: '졌습니다.',
-        score: prevState.score - 1
+        score: prevState.score - 1,
       }));
     }
 
@@ -85,15 +85,15 @@ class RockPaperScissorsClass extends Component {
 
     if (imgCoord === RPS_COORDS.ROCK) {
       this.setState({
-        imgCoord: RPS_COORDS.SCISSORS
+        imgCoord: RPS_COORDS.SCISSORS,
       });
     } else if (imgCoord === RPS_COORDS.SCISSORS) {
       this.setState({
-        imgCoord: RPS_COORDS.PAPER
+        imgCoord: RPS_COORDS.PAPER,
       });
     } else if (imgCoord === RPS_COORDS.PAPER) {
       this.setState({
-        imgCoord: RPS_COORDS.ROCK
+        imgCoord: RPS_COORDS.ROCK,
       });
     }
   };
@@ -106,7 +106,7 @@ class RockPaperScissorsClass extends Component {
         <div
           id="computer"
           style={{
-            background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${imgCoord} 0`
+            background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${imgCoord} 0`,
           }}
         />
         <div>

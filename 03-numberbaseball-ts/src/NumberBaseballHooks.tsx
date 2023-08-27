@@ -54,7 +54,7 @@ function NumberBaseballHooks(): JSX.Element {
 
         if (tries.length >= 9) {
           setResult(
-            `10번 넘게 틀려서 실패! 답은 ${answer.join(',')} 였습니다!`
+            `10번 넘게 틀려서 실패! 답은 ${answer.join(',')} 였습니다!`,
           );
 
           reset();
@@ -72,12 +72,12 @@ function NumberBaseballHooks(): JSX.Element {
 
           setTries((prevTries) => [
             ...prevTries,
-            { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` }
+            { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` },
           ]);
         }
       }
     },
-    [value, answer, tries.length]
+    [value, answer, tries.length],
   );
 
   const onChangeInput = useCallback<

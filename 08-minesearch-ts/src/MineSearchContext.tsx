@@ -10,7 +10,7 @@ interface Context {
 const MineSearchContext = createContext<Context>({
   tableData: [],
   halted: true,
-  dispatch: () => {}
+  dispatch: () => {},
 });
 
 export default MineSearchContext;

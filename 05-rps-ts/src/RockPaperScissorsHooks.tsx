@@ -4,20 +4,20 @@ import { useState, useRef, useEffect } from 'react';
 const RPS_COORDS = {
   ROCK: '0',
   SCISSORS: '-142px',
-  PAPER: '-284px'
+  PAPER: '-284px',
 } as const;
 
 const SCORES = {
   ROCK: 0,
   SCISSORS: 1,
-  PAPER: -1
+  PAPER: -1,
 } as const;
 
 type ImgCoords = (typeof RPS_COORDS)[keyof typeof RPS_COORDS];
 
 const computerChoice = (imgCoord: ImgCoords) =>
   (Object.keys(RPS_COORDS) as ['ROCK', 'SCISSORS', 'PAPER']).find(
-    (k) => RPS_COORDS[k] === imgCoord
+    (k) => RPS_COORDS[k] === imgCoord,
   ) ?? 'ROCK';
 
 function RockPaperScissorsHooks(): JSX.Element {
@@ -75,7 +75,7 @@ function RockPaperScissorsHooks(): JSX.Element {
       <div
         id="computer"
         style={{
-          background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${imgCoord} 0`
+          background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${imgCoord} 0`,
         }}
       />
       <div>

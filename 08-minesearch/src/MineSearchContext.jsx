@@ -3,7 +3,7 @@ import { createContext } from 'react';
 const MineSearchContext = createContext({
   tableData: [],
   halted: true,
-  dispatch: () => {}
+  dispatch: () => {},
 });
 
 export default MineSearchContext;

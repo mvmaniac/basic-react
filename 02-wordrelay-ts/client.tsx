@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom/client';
 import WordRelayHooks from './src/WordRelayHooks';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLDivElement
+  document.getElementById('root') as HTMLDivElement,
 );
 
 root.render(
   <React.StrictMode>
     <WordRelayHooks />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

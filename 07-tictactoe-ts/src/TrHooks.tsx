@@ -18,7 +18,7 @@ const TrHooks: React.FC<Props> = memo(({ rowIndex, rowData, dispatch }) => {
       'tr hooks -> ',
       rowData === ref.current[0],
       dispatch === ref.current[1],
-      rowIndex === ref.current[2]
+      rowIndex === ref.current[2],
     );
     ref.current = [rowData, dispatch, rowIndex];
   }, [rowData, dispatch, rowIndex]);

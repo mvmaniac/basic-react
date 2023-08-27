@@ -13,7 +13,7 @@ const getWinNumbers = () => {
 
   while (candidate.length > 0) {
     shuffle.push(
-      candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0]
+      candidate.splice(Math.floor(Math.random() * candidate.length), 1)[0],
     );
   }
 
@@ -38,9 +38,12 @@ function LottoHooks(): JSX.Element {
 
   const runTimeouts = () => {
     for (let i = 0, { length } = winNumbers; i < length - 1; i += 1) {
-      timeouts.current[i] = window.setTimeout(() => {
-        setWinBalls((prevWinBalls) => [...prevWinBalls, winNumbers[i]]);
-      }, (i + 1) * 1000);
+      timeouts.current[i] = window.setTimeout(
+        () => {
+          setWinBalls((prevWinBalls) => [...prevWinBalls, winNumbers[i]]);
+        },
+        (i + 1) * 1000,
+      );
     }
 
     timeouts.current[6] = window.setTimeout(() => {

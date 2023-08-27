@@ -6,12 +6,12 @@ import { Configuration } from 'webpack';
 const commonConfig: Configuration = {
   name: 'rps-ts-config',
   resolve: {
-    extensions: ['.jsx', '.js', '.tsx', '.ts']
+    extensions: ['.jsx', '.js', '.tsx', '.ts'],
   },
 
   // 입력
   entry: {
-    app: ['./client']
+    app: ['./client'],
   },
 
   module: {
@@ -22,24 +22,24 @@ const commonConfig: Configuration = {
         use: [
           {
             loader: 'babel-loader',
-            options: {}
-          }
-        ]
-      }
-    ]
+            options: {},
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
     new CleanWebpackPlugin.CleanWebpackPlugin(),
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin(),
   ],
 
   // 출력
   output: {
     publicPath: '/dist',
     path: path.join(__dirname, '../dist'),
-    filename: '[name].js'
-  }
+    filename: '[name].js',
+  },
 };
 
 export default commonConfig;

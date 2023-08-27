@@ -10,7 +10,7 @@ import {
   FLAG_CELL,
   QUESTION_CELL,
   NORMALIZE_CELL,
-  INCREMENT_TIMER
+  INCREMENT_TIMER,
 } from './Const';
 
 const plantMine = (row, cell, mine) => {
@@ -24,7 +24,7 @@ const plantMine = (row, cell, mine) => {
   while (candidate.length > row * cell - mine) {
     const chosen = candidate.splice(
       Math.floor(Math.random() * candidate.length),
-      1
+      1,
     )[0];
     shuffle.push(chosen);
   }
@@ -58,13 +58,13 @@ const reducer = (state, action) => {
         data: {
           row: action.row,
           cell: action.cell,
-          mine: action.mine
+          mine: action.mine,
         },
         tableData: plantMine(action.row, action.cell, action.mine),
         timer: 0,
         result: '',
         halted: false,
-        openedCount: 0
+        openedCount: 0,
       };
     }
     case CLICK_MINE: {
@@ -76,7 +76,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         tableData,
-        halted: true
+        halted: true,
       };
     }
     case OPEN_CELL: {
@@ -105,7 +105,7 @@ const reducer = (state, action) => {
             CODE.FLAG_MINE,
             CODE.FLAG,
             CODE.QUESTION_MINE,
-            CODE.QUESTION
+            CODE.QUESTION,
           ].includes(tableData[row][cell])
         ) {
           return;
@@ -124,25 +124,25 @@ const reducer = (state, action) => {
           around = around.concat(
             tableData[row - 1][cell - 1],
             tableData[row - 1][cell],
-            tableData[row - 1][cell + 1]
+            tableData[row - 1][cell + 1],
           );
         }
 
         around = around.concat(
           tableData[row][cell - 1],
-          tableData[row][cell + 1]
+          tableData[row][cell + 1],
         );
 
         if (tableData[row + 1]) {
           around = around.concat(
             tableData[row + 1][cell - 1],
             tableData[row + 1][cell],
-            tableData[row + 1][cell + 1]
+            tableData[row + 1][cell + 1],
           );
         }
 
         const count = around.filter((v) =>
-          [CODE.MINE, CODE.FLAG_MINE, CODE.QUESTION_MINE].includes(v)
+          [CODE.MINE, CODE.FLAG_MINE, CODE.QUESTION_MINE].includes(v),
         ).length;
 
         // 주변칸 오픈
@@ -198,7 +198,7 @@ const reducer = (state, action) => {
         tableData,
         result,
         halted,
-        openedCount
+        openedCount,
       };
     }
     case FLAG_CELL: {
@@ -214,7 +214,7 @@ const reducer = (state, action) => {
 
       return {
         ...state,
-        tableData
+        tableData,
       };
     }
     case QUESTION_CELL: {
@@ -230,7 +230,7 @@ const reducer = (state, action) => {
 
       return {
         ...state,
-        tableData
+        tableData,
       };
     }
     case NORMALIZE_CELL: {
@@ -246,13 +246,13 @@ const reducer = (state, action) => {
 
       return {
         ...state,
-        tableData
+        tableData,
       };
     }
     case INCREMENT_TIMER: {
       return {
         ...state,
-        timer: state.timer + 1
+        timer: state.timer + 1,
       };
     }
     default: {
@@ -265,13 +265,13 @@ const initialState = {
   data: {
     row: 0,
     cell: 0,
-    mine: 0
+    mine: 0,
   },
   tableData: [],
   timer: 0,
   result: '',
   halted: true,
-  openedCount: 0
+  openedCount: 0,
 };
 
 function MineSearchHooks() {

@@ -6,7 +6,7 @@ import {
   CLICK_MINE,
   FLAG_CELL,
   QUESTION_CELL,
-  NORMALIZE_CELL
+  NORMALIZE_CELL,
 } from './Const';
 
 const getTdStyle = (code) => {
@@ -14,30 +14,30 @@ const getTdStyle = (code) => {
     case CODE.NORMAL:
     case CODE.MINE: {
       return {
-        background: '#444'
+        background: '#444',
       };
     }
     case CODE.CLICKED_MINE:
     case CODE.OPENED: {
       return {
-        background: '#fff'
+        background: '#fff',
       };
     }
     case CODE.FLAG_MINE:
     case CODE.FLAG: {
       return {
-        background: '#f00'
+        background: '#f00',
       };
     }
     case CODE.QUESTION_MINE:
     case CODE.QUESTION: {
       return {
-        background: '#ff0'
+        background: '#ff0',
       };
     }
     default: {
       return {
-        background: '#fff'
+        background: '#fff',
       };
     }
   }
@@ -134,7 +134,7 @@ const TdHooks = memo(({ rowIndex, cellIndex }) => {
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [tableData[rowIndex][cellIndex], halted]
+    [tableData[rowIndex][cellIndex], halted],
   );
 
   return useMemo(
@@ -149,7 +149,7 @@ const TdHooks = memo(({ rowIndex, cellIndex }) => {
       </td>
     ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [tableData[rowIndex][cellIndex]]
+    [tableData[rowIndex][cellIndex]],
   );
 });
 

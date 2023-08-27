@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom/client';
 import Games from './src/Games';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLDivElement
+  document.getElementById('root') as HTMLDivElement,
 );
 
 root.render(
   <React.StrictMode>
     <Games />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom/client';
 import RockPaperScissorsHooks from './src/RockPaperScissorsHooks';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLDivElement
+  document.getElementById('root') as HTMLDivElement,
 );
 
 root.render(
   <React.StrictMode>
     <RockPaperScissorsHooks />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

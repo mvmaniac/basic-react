@@ -20,7 +20,7 @@ class ResponseCheckClass extends Component<Record<string, unknown>, State> {
     this.state = {
       state: 'waiting',
       message: '클릭해서 시작하세요.(class)',
-      result: []
+      result: [],
     };
   }
 
@@ -30,12 +30,15 @@ class ResponseCheckClass extends Component<Record<string, unknown>, State> {
     if (state === 'waiting') {
       this.setStateAndMessage('ready', '초록색이 되면 클릭하세요.');
 
-      this.timeout = window.setTimeout(() => {
-        this.setStateAndMessage('now', '지금 클릭!!!');
+      this.timeout = window.setTimeout(
+        () => {
+          this.setStateAndMessage('now', '지금 클릭!!!');
 
-        // 시작 시간 체크
-        this.startTime = new Date().getTime();
-      }, Math.floor(Math.random() * 1000) + 2000); // 2초 ~ 3초 랜덤
+          // 시작 시간 체크
+          this.startTime = new Date().getTime();
+        },
+        Math.floor(Math.random() * 1000) + 2000,
+      ); // 2초 ~ 3초 랜덤
     } else if (state === 'ready') {
       // 타임아웃 클리어
       if (this.timeout) {
@@ -45,7 +48,7 @@ class ResponseCheckClass extends Component<Record<string, unknown>, State> {
       // 성급하게 클릭
       this.setStateAndMessage(
         'waiting',
-        '너무 성급 하시군요! 초록색이 된 후에 클릭하세요.'
+        '너무 성급 하시군요! 초록색이 된 후에 클릭하세요.',
       );
     } else if (state === 'now') {
       // 끝 시간 체크
@@ -55,24 +58,24 @@ class ResponseCheckClass extends Component<Record<string, unknown>, State> {
       this.setState((prevState) => ({
         state: 'waiting',
         message: '클릭해서 시작하세요.(class)',
-        result: [...prevState.result, this.endTime - this.startTime]
+        result: [...prevState.result, this.endTime - this.startTime],
       }));
     }
   };
 
   onReset = (): void => {
     this.setState({
-      result: []
+      result: [],
     });
   };
 
   setStateAndMessage = (
     newState: 'waiting' | 'now' | 'ready',
-    newMessage: string
+    newMessage: string,
   ): void => {
     this.setState({
       state: newState,
-      message: newMessage
+      message: newMessage,
     });
   };
 

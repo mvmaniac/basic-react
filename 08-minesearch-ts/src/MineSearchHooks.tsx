@@ -10,7 +10,7 @@ import {
   CLICK_MINE,
   OPEN_CELL,
   INCREMENT_TIMER,
-  ReducerActions
+  ReducerActions,
 } from './types/types';
 
 interface ReducerState {
@@ -30,13 +30,13 @@ const initialState: ReducerState = {
   data: {
     row: 0,
     cell: 0,
-    mine: 0
+    mine: 0,
   },
   tableData: [],
   timer: 0,
   result: '',
   halted: true,
-  openedCount: 0
+  openedCount: 0,
 };
 
 const plantMine = (row: number, cell: number, mine: number): Codes[][] => {
@@ -50,7 +50,7 @@ const plantMine = (row: number, cell: number, mine: number): Codes[][] => {
   while (candidate.length > row * cell - mine) {
     const chosen = candidate.splice(
       Math.floor(Math.random() * candidate.length),
-      1
+      1,
     )[0];
     shuffle.push(chosen);
   }
@@ -84,13 +84,13 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
         data: {
           row: action.row,
           cell: action.cell,
-          mine: action.mine
+          mine: action.mine,
         },
         tableData: plantMine(action.row, action.cell, action.mine),
         timer: 0,
         result: '',
         halted: false,
-        openedCount: 0
+        openedCount: 0,
       };
     }
     case CLICK_MINE: {
@@ -102,7 +102,7 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
       return {
         ...state,
         tableData,
-        halted: true
+        halted: true,
       };
     }
     case OPEN_CELL: {
@@ -132,7 +132,7 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
               CODE.FLAG_MINE,
               CODE.FLAG,
               CODE.QUESTION_MINE,
-              CODE.QUESTION
+              CODE.QUESTION,
             ] as Codes[]
           ).includes(tableData[row][cell])
         ) {
@@ -152,27 +152,27 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
           around = around.concat(
             tableData[row - 1][cell - 1],
             tableData[row - 1][cell],
-            tableData[row - 1][cell + 1]
+            tableData[row - 1][cell + 1],
           );
         }
 
         around = around.concat(
           tableData[row][cell - 1],
-          tableData[row][cell + 1]
+          tableData[row][cell + 1],
         );
 
         if (tableData[row + 1]) {
           around = around.concat(
             tableData[row + 1][cell - 1],
             tableData[row + 1][cell],
-            tableData[row + 1][cell + 1]
+            tableData[row + 1][cell + 1],
           );
         }
 
         const count = around.filter((v) =>
           ([CODE.MINE, CODE.FLAG_MINE, CODE.QUESTION_MINE] as Codes[]).includes(
-            v as Codes
-          )
+            v as Codes,
+          ),
         ).length as Codes;
 
         // 주변칸 오픈
@@ -228,13 +228,13 @@ const reducer = (state: ReducerState, action: ReducerActions): ReducerState => {
         tableData,
         result,
         halted,
-        openedCount
+        openedCount,
       };
     }
     case INCREMENT_TIMER: {
       return {
         ...state,
-        timer: state.timer + 1
+        timer: state.timer + 1,
       };
     }
     default: {
@@ -249,7 +249,7 @@ function MineSearchHooks(): JSX.Element {
 
   const value = useMemo(
     () => ({ tableData, halted, dispatch }),
-    [tableData, halted]
+    [tableData, halted],
   );
 
   useEffect(() => {

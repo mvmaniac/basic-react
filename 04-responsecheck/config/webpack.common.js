@@ -6,12 +6,12 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
   name: 'response-check-config',
   resolve: {
-    extensions: ['.jsx', '.js']
+    extensions: ['.jsx', '.js'],
   },
 
   // 입력
   entry: {
-    app: ['./client']
+    app: ['./client'],
   },
 
   module: {
@@ -22,23 +22,23 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            options: {}
-          }
-        ]
-      }
-    ]
+            options: {},
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new ESLintPlugin({
-      extensions: ['.jsx', '.js']
-    })
+      extensions: ['.jsx', '.js'],
+    }),
   ],
 
   // 출력
   output: {
     publicPath: '/dist',
     path: path.join(__dirname, '../dist'),
-    filename: '[name].js'
-  }
+    filename: '[name].js',
+  },
 };

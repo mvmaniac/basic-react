@@ -22,7 +22,7 @@ class NumberBaseballClass extends Component {
       result: '',
       value: '',
       answer: getNumbers(), // ex: [1, 3, 5, 7]
-      tries: []
+      tries: [],
     };
 
     this.inputRef = createRef();
@@ -36,7 +36,7 @@ class NumberBaseballClass extends Component {
     if (value === answer.join('')) {
       this.setState((prevState) => ({
         result: '홈런!',
-        tries: [...prevState.tries, { try: value, result: '홈런' }]
+        tries: [...prevState.tries, { try: value, result: '홈런' }],
       }));
 
       this.reset();
@@ -48,7 +48,7 @@ class NumberBaseballClass extends Component {
 
       if (tries.length >= 9) {
         this.setState({
-          result: `10번 넘게 틀려서 실패! 답은 ${answer.join(',')} 였습니다!`
+          result: `10번 넘게 틀려서 실패! 답은 ${answer.join(',')} 였습니다!`,
         });
 
         this.reset();
@@ -66,8 +66,8 @@ class NumberBaseballClass extends Component {
           value: '',
           tries: [
             ...prevState.tries,
-            { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` }
-          ]
+            { try: value, result: `${strike} 스트라이크, ${ball} 볼 입니다.` },
+          ],
         }));
       }
     }
@@ -75,7 +75,7 @@ class NumberBaseballClass extends Component {
 
   onChangeInput = (event) => {
     this.setState({
-      value: event.target.value
+      value: event.target.value,
     });
   };
 
@@ -86,7 +86,7 @@ class NumberBaseballClass extends Component {
     this.setState({
       value: '',
       answer: getNumbers(),
-      tries: []
+      tries: [],
     });
   };
 
