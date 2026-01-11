@@ -8,10 +8,7 @@ import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
-import {
-  configs as tseslintConfigs,
-  parser as tseslintParser,
-} from 'typescript-eslint';
+import { configs as tseslintConfigs, parser as tseslintParser } from 'typescript-eslint';
 
 const isProd = (process.env.NODE_ENV ?? '').toLowerCase() === 'production';
 
@@ -56,7 +53,6 @@ export default defineConfig(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    /** @see https://github.com/import-js/eslint-plugin-import?tab=readme-ov-file#typescript */
     settings: {
       react: {
         version: 'detect',
@@ -101,10 +97,7 @@ export default defineConfig(
         'warn',
         { allowSameFolder: false, rootDir: 'src', prefix: '@' },
       ],
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'import-x/order': [
         'error',
         {
@@ -113,21 +106,27 @@ export default defineConfig(
             'external',
             'type',
             'internal',
-            'index',
-            ['parent', 'sibling'],
+            ['parent', 'sibling', 'index'],
+            'object',
             'unknown',
           ],
           pathGroups: [
+            // react
             {
-              pattern: '@/api/**',
-              group: 'internal',
+              pattern: '{react,react-dom,react-dom/**,react-*}',
+              group: 'external',
               position: 'before',
             },
+
+            // internal
+            { pattern: '@/pages/**', group: 'internal', position: 'before' },
+            { pattern: '@/components/**', group: 'internal', position: 'before' },
+            { pattern: '@/shared/**', group: 'internal', position: 'after' },
+            { pattern: '@/api/**', group: 'internal', position: 'after' },
           ],
           'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-          },
+          pathGroupsExcludedImportTypes: ['builtin'],
+          alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
     },
