@@ -1,10 +1,10 @@
 import { Link } from 'react-router';
 
+import type { Todo } from '@/shared/types';
+
 import { useDeleteTodo } from '@/stores/todo-store';
 
 import { Button } from '@/components/ui/button';
-
-import type { Todo } from '@/shared/types';
 
 interface TodoItemProps {
   id: Todo['id'];

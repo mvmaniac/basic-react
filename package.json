@@ -8,8 +8,8 @@
     "dev": "vite",
     "preview": "vite preview",
     "build": "tsc -b && vite build",
-    "lint": "eslint . --ignore-pattern .gitignore",
-    "mock": "json-server --watch mock/db.json --port 5000"
+    "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{ts,tsx,js,jsx,cjs,mjs}\" --ignore-pattern .gitignore",
+    "mock": "json-server mock/db.json --port 5000"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.15",

@@ -48,10 +48,9 @@ export default defineConfig(
       globals: {
         ...globals.browser,
       },
+      parser: tseslintParser,
       parserOptions: {
         ecmaFeatures: { jsx: true },
-        /** @see https://typescript-eslint.io/packages/typescript-eslint#advanced-usage */
-        parser: tseslintParser,
         /** @see https://typescript-eslint.io/blog/project-service */
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
@@ -64,7 +63,7 @@ export default defineConfig(
       'import-x/resolver-next': [
         createTypeScriptImportResolver({
           alwaysTryTypes: true,
-          project: ['tsconfig.app.json', 'tsconfig.node.json'],
+          project: ['tsconfig.json'],
         }),
       ],
     },
@@ -140,6 +139,10 @@ export default defineConfig(
               position: 'before',
             },
 
+            // type
+            { pattern: '@/shared/types', group: 'type', position: 'after' },
+            { pattern: '@/shared/types/**', group: 'type', position: 'after' },
+
             // internal
             { pattern: '@/app/**', group: 'internal', position: 'before' },
             { pattern: '@/routes/**', group: 'internal', position: 'before' },
@@ -154,7 +157,7 @@ export default defineConfig(
             { pattern: '@/shared/**', group: 'internal', position: 'after' },
           ],
           'newlines-between': 'always',
-          pathGroupsExcludedImportTypes: ['builtin'],
+          pathGroupsExcludedImportTypes: ['builtin', 'type'],
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
