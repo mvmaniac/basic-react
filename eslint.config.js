@@ -8,7 +8,11 @@ import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
-import { configs as tseslintConfigs, parser as tseslintParser } from 'typescript-eslint';
+import {
+  configs as tseslintConfigs,
+  parser as tseslintParser,
+  plugin as tseslintPlugin,
+} from 'typescript-eslint';
 
 const isProd = (process.env.NODE_ENV ?? '').toLowerCase() === 'production';
 
@@ -88,16 +92,34 @@ export default defineConfig(
 
   {
     plugins: {
+      '@typescript-eslint': tseslintPlugin,
       'no-relative-import-paths': pluginNoRelativeImportPaths,
       'react-refresh': pluginReactRefresh,
     },
     rules: {
       'no-console': isProd ? 'error' : 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
       'no-relative-import-paths/no-relative-import-paths': [
         'warn',
         { allowSameFolder: false, rootDir: 'src', prefix: '@' },
       ],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'sort-imports': [
+        'error',
+        {
+          ignoreCase: true,
+          ignoreDeclarationSort: true,
+          ignoreMemberSort: false,
+          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        },
+      ],
       'import-x/order': [
         'error',
         {
@@ -119,10 +141,17 @@ export default defineConfig(
             },
 
             // internal
+            { pattern: '@/app/**', group: 'internal', position: 'before' },
+            { pattern: '@/routes/**', group: 'internal', position: 'before' },
+            { pattern: '@/layouts/**', group: 'internal', position: 'before' },
+
+            { pattern: '@/stores/**', group: 'internal', position: 'before' },
             { pattern: '@/pages/**', group: 'internal', position: 'before' },
             { pattern: '@/components/**', group: 'internal', position: 'before' },
-            { pattern: '@/shared/**', group: 'internal', position: 'after' },
+
+            { pattern: '@/queries/**', group: 'internal', position: 'after' },
             { pattern: '@/api/**', group: 'internal', position: 'after' },
+            { pattern: '@/shared/**', group: 'internal', position: 'after' },
           ],
           'newlines-between': 'always',
           pathGroupsExcludedImportTypes: ['builtin'],
