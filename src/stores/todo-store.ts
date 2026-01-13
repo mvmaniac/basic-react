@@ -19,8 +19,9 @@ const useTodoStore = create(
         createTodo: (content: string) => {
           set((state) => {
             state.todos.push({
-              id: new Date().getTime(),
+              id: String(new Date().getTime()),
               content,
+              isDone: false,
             });
           });
         },

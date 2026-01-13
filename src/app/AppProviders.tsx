@@ -3,12 +3,10 @@ import { BrowserRouter } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import type { Todo } from '@/shared/types';
 import type { ReactNode } from 'react';
 
 interface AppProvidersProps {
   children: ReactNode;
-  todo?: Todo;
 }
 
 const queryClient = new QueryClient({
