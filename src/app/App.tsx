@@ -1,4 +1,4 @@
-import AppProviders from '@/app/AppProviders';
+import AppProviders from '@/app/AppProviders.tsx';
 
 import AppRoutes from '@/routes';
 

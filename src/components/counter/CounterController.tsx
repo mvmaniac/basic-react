@@ -1,6 +1,6 @@
-import { useDecreaseCount, useIncreaseCount } from '@/stores/count-store';
+import { useDecreaseCount, useIncreaseCount } from '@/stores/count-store.ts';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button.tsx';
 
 export default function CounterController() {
   const increase = useIncreaseCount();

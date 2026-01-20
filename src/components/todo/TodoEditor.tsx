@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button.tsx';
+import { Input } from '@/components/ui/input.tsx';
 
-import { useCreateTodoMutation } from '@/queries/todo-mutation';
+import { useCreateTodoMutation } from '@/queries/todo-mutation.ts';
 
 export default function TodoEditor() {
   const { mutate, isPending } = useCreateTodoMutation();

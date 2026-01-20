@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router';
 
-import AuthLayout from '@/layouts/AuthLayout';
+import AuthLayout from '@/layouts/AuthLayout.tsx';
 
-import SignInPage from '@/pages/auth/SignInPage';
-import SignUpPage from '@/pages/auth/SignUpPage';
-import CounterPage from '@/pages/counter/CounterPage';
-import IndexPage from '@/pages/IndexPage';
-import TodoDetailPage from '@/pages/todo/TodoDetailPage';
-import TodoListPage from '@/pages/todo/TodoListPage';
+import SignInPage from '@/pages/auth/SignInPage.tsx';
+import SignUpPage from '@/pages/auth/SignUpPage.tsx';
+import CounterPage from '@/pages/counter/CounterPage.tsx';
+import IndexPage from '@/pages/IndexPage.tsx';
+import TodoDetailPage from '@/pages/todo/TodoDetailPage.tsx';
+import TodoListPage from '@/pages/todo/TodoListPage.tsx';
 
 export default function AppRoutes() {
   return (

@@ -1,5 +1,5 @@
-import CounterController from '@/components/counter/CounterController';
-import CounterViewer from '@/components/counter/CounterViewer';
+import CounterController from '@/components/counter/CounterController.tsx';
+import CounterViewer from '@/components/counter/CounterViewer.tsx';
 
 export default function CounterPage() {
   return (

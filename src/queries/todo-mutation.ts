@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import type { Todo } from '@/shared/types';
 
-import { createTodo, deleteTodo, updateTodo } from '@/api/todo-api';
+import { createTodo, deleteTodo, updateTodo } from '@/api/todo-api.ts';
 
 import { QUERY_KEYS } from '@/shared/constants';
 

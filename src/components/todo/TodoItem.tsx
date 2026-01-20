@@ -2,10 +2,10 @@ import { Link } from 'react-router';
 
 import type { Todo } from '@/shared/types';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button.tsx';
 
-import { useDeleteTodoMutation, useUpdateTodoMutation } from '@/queries/todo-mutation';
-import { useTodoById } from '@/queries/todo-query';
+import { useDeleteTodoMutation, useUpdateTodoMutation } from '@/queries/todo-mutation.ts';
+import { useTodoById } from '@/queries/todo-query.ts';
 
 interface TodoItemProps {
   id: Todo['id'];

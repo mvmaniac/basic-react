@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 
-import { useTodoById } from '@/queries/todo-query';
+import { useTodoById } from '@/queries/todo-query.ts';
 
 export default function TodoDetailPage() {
   const params = useParams();

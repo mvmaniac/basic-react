@@ -2,7 +2,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 import type { Todo } from '@/shared/types';
 
-import { fetchTodoById, fetchTodos } from '@/api/todo-api';
+import { fetchTodoById, fetchTodos } from '@/api/todo-api.ts';
 
 import { QUERY_KEYS } from '@/shared/constants';
 
