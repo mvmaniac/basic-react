@@ -4,8 +4,8 @@ import type { Todo } from '@/shared/types';
 
 import { Button } from '@/components/ui/button.tsx';
 
-import { useDeleteTodoMutation, useUpdateTodoMutation } from '@/queries/todo-mutation.ts';
-import { useTodoById } from '@/queries/todo-query.ts';
+import { useDeleteTodo, useUpdateTodo } from '@/queries/todo.mutation.ts';
+import { useTodoById } from '@/queries/todo.query.ts';
 
 interface TodoItemProps {
   id: Todo['id'];
@@ -13,8 +13,8 @@ interface TodoItemProps {
 
 export default function TodoItem({ id }: TodoItemProps) {
   const { data: todo } = useTodoById(id, 'LIST');
-  const { mutate: updateTodo } = useUpdateTodoMutation();
-  const { mutate: deleteTodo, isPending: isDeletePending } = useDeleteTodoMutation();
+  const { mutate: updateTodo } = useUpdateTodo();
+  const { mutate: deleteTodo, isPending: isDeletePending } = useDeleteTodo();
 
   if (!todo) return null;
   const { content, isDone } = todo;

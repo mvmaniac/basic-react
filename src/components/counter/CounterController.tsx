@@ -1,4 +1,4 @@
-import { useDecreaseCount, useIncreaseCount } from '@/stores/count-store.ts';
+import { useDecreaseCount, useIncreaseCount } from '@/stores/count.ts';
 
 import { Button } from '@/components/ui/button.tsx';
 

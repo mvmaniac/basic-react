@@ -2,22 +2,22 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import type { Todo } from '@/shared/types';
 
-import { createTodo, deleteTodo, updateTodo } from '@/api/todo-api.ts';
+import { createTodo, deleteTodo, updateTodo } from '@/api/todo.ts';
 
 import { QUERY_KEYS } from '@/shared/constants';
 
-export function useCreateTodoMutation() {
+export function useCreateTodo() {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: createTodo,
     onMutate: () => {
       // 비동기 실행 전
-      console.log('[useCreateTodoMutation] onMutate called');
+      console.log('[useCreateTodo] onMutate called');
     },
     onSettled: () => {
       // 비동기 완료 후
-      console.log('[useCreateTodoMutation] onSettled called');
+      console.log('[useCreateTodo] onSettled called');
     },
     onSuccess: (newTodo) => {
       // 목록 갱신 - 성공시 추가 하는 방법
@@ -44,7 +44,7 @@ export function useCreateTodoMutation() {
 }
 
 // 낙관적 락 사용 시
-export function useUpdateTodoMutation() {
+export function useUpdateTodo() {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -104,7 +104,7 @@ export function useUpdateTodoMutation() {
   });
 }
 
-export function useDeleteTodoMutation() {
+export function useDeleteTodo() {
   const queryClient = useQueryClient();
 
   return useMutation({

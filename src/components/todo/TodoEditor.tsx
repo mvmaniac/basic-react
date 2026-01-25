@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button.tsx';
 import { Input } from '@/components/ui/input.tsx';
 
-import { useCreateTodoMutation } from '@/queries/todo-mutation.ts';
+import { useCreateTodo } from '@/queries/todo.mutation.ts';
 
 export default function TodoEditor() {
-  const { mutate, isPending } = useCreateTodoMutation();
+  const { mutate, isPending } = useCreateTodo();
   const [content, setContent] = useState('');
 
   const handleContentAdd = (e: React.KeyboardEvent<HTMLInputElement>) => {

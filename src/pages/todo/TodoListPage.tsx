@@ -1,7 +1,7 @@
 import TodoEditor from '@/components/todo/TodoEditor.tsx';
 import TodoItem from '@/components/todo/TodoItem.tsx';
 
-import { useTodosData } from '@/queries/todo-query.ts';
+import { useTodosData } from '@/queries/todo.query.ts';
 
 export default function TodoListPage() {
   const { data: todoIds, isLoading, error } = useTodosData();

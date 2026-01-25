@@ -54,11 +54,14 @@ const useCountStore = create(
         ),
       ),
       {
-        name: 'count',
+        name: 'count-storage',
         partialize: (store) => ({ count: store.count }),
         storage: createJSONStorage(() => sessionStorage), // or localStorage (default)
       },
     ),
+    {
+      name: 'CountStore',
+    },
   ),
 );
 

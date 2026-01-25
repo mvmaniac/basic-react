@@ -1,4 +1,4 @@
-import { useCount } from '@/stores/count-store.ts';
+import { useCount } from '@/stores/count.ts';
 
 export default function CounterViewer() {
   const count = useCount();
