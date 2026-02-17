@@ -4,4 +4,4 @@ export const QUERY_KEYS = {
     list: ['todo', 'list'],
     detail: (id: string) => ['todo', 'detail', id],
   },
-};
+} as const;

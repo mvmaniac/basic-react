@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import type { ChangeEvent, KeyboardEvent } from 'react';
+
 import { Button } from '@/components/ui/button.tsx';
 import { Input } from '@/components/ui/input.tsx';
 
@@ -9,12 +11,12 @@ export default function TodoEditor() {
   const { mutate, isPending } = useCreateTodo();
   const [content, setContent] = useState('');
 
-  const handleContentAdd = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleContentAdd = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== 'Enter') return;
     handleAddClick();
   };
 
-  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleContentChange = (e: ChangeEvent<HTMLInputElement>) => {
     setContent(e.target.value);
   };
 
