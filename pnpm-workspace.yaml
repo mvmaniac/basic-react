@@ -1,0 +1,5 @@
+allowBuilds:
+  '@swc/core': true
+  unrs-resolver: true
+patchedDependencies:
+  eslint-plugin-no-relative-import-paths@1.6.1: patches/eslint-plugin-no-relative-import-paths@1.6.1.patch
