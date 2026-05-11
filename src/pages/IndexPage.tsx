@@ -15,6 +15,7 @@ export default function IndexPage() {
       <div className="flex gap-2">
         <Button onClick={handleNavigate('/counter')}>Counter</Button>
         <Button onClick={handleNavigate('/todo-list')}>Todo List</Button>
+        <Button onClick={handleNavigate('/sample')}>Sample</Button>
       </div>
     </div>
   );
